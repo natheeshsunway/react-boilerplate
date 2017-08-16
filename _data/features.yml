@@ -25,7 +25,7 @@
 - items:
     - title: <i class="fa fa-wrench" aria-hidden="true"></i> Build Process
       items:
-          - label: Built with <a href="https://webpack.js.org/">webpack 2</a>
+          - label: Bundled with <a href="https://webpack.js.org/">webpack 3</a>
           - label: Supports ES6 via <a href="https://babeljs.io/">Babel</a> transpiling
 
     - title: <i class="fa fa-code" aria-hidden="true"></i> HTTP
