@@ -7,12 +7,12 @@
     - title: <i class="fa fa-tree" aria-hidden="true"></i> State Management
       items:
           - label: <a href="https://github.com/mikechabot/redux-entity">redux-entity</a> for domain entity management.
-          - label: <a href="https://github.com/gaearon/redux-thunk">redux-thunk</a> for <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunk-action-creators.js#L21">asynchronous actions</a>
+          - label: <a href="https://github.com/gaearon/redux-thunk">redux-thunk</a> for <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunks.js#L6">asynchronous actions</a>
           - label: <a href="https://github.com/theaqua/redux-logger">redux-logger</a> for capturing actions
 
     - title: <i class="fa fa-link" aria-hidden="true"></i> Routing
       items:
-          - label: <a href="https://github.com/reactjs/react-router">react-router v3</a> for client-side <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/routes.js">routing</a>
+          - label: <a href="https://github.com/reactjs/react-router">react-router v4</a> for client-side <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.jsx#L5">routing</a>
 
     - title: <i class="fa fa-diamond" aria-hidden="true"></i> Testing
       items:
@@ -30,8 +30,8 @@
 
     - title: <i class="fa fa-code" aria-hidden="true"></i> HTTP
       items:
-          - label: Easily create <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/services/domain/example-domain-service.js">domain services</a> that implement a generic <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L42">data service</a>.
-          - label: <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L11">Customize</a> the <a href="https://github.com/mzabriskie/axios">Axios</a> instances that drives the generic data service.
+          - label: Easily create <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/services/domain/example-domain-service.js">domain services</a> that implement a generic <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L32">data service</a>.
+          - label: <a href="https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L8">Customize</a> the <a href="https://github.com/mzabriskie/axios">Axios</a> instances that drives the generic data service.
 
     - title: <i class="fa fa-text-height" aria-hidden="true"></i> Styling
       items:
