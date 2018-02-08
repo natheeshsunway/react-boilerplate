@@ -36,7 +36,8 @@
     - title: <i class="fa fa-text-height" aria-hidden="true"></i> Styling
       items:
           - label: Supports <a href="http://sass-lang.com/">SCSS & SASS</a> syntax
-          - label: Browser compatibility via <a href="https://github.com/postcss/autoprefixer">autoprefixer</a>
+          - label: Browser compatibility via <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> and <a href="https://necolas.github.io/normalize.css/">normalize.css</a>
+          - label: <a href="https://glamorous.rocks">glamorous</a> for CSS-in-JS styling
 
     - title: <i class="fa fa-desktop" aria-hidden="true"></i> Develop & Deploy
       items:
