@@ -17,7 +17,7 @@
     - title: <i class="fa fa-diamond" aria-hidden="true"></i> Testing
       items:
           - label: Tested with <a href="https://mochajs.org/">Mocha</a> and <a href="http://chaijs.com/">Chai</a>
-          - label: Coverage support via <a href="https://gotwarlost.github.io/istanbul/">Istanbul</a>
+          - label: Coverage support via <a href="https://istanbul.js.org">nyc</a>
           - label: <a href="https://facebook.github.io/react/docs/test-utils.html">react-addons-test-utils</a> for component testing
           - label: <a href="https://github.com/arnaudbenard/redux-mock-store">redux-mock-store</a> for Redux state testing
           - label: <a href="http://sinonjs.org/">Sinon.JS</a> for mocking, stubbing & spying
