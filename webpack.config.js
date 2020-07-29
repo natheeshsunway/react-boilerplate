@@ -20,18 +20,18 @@ const isDevelopment = NodeUtils.isDevelopment();
  * Get webpack plugins
  * @returns {*[]}
  */
-function getPlugins () {
+function getPlugins() {
   return [
     // Clear the output dir before builds
     new CleanPlugin({
-      files: ['docs/*']
+      files: ['docs/*'],
     }),
 
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
 
     // Ignore moment locales
@@ -40,36 +40,32 @@ function getPlugins () {
     // Inject bundles and CSS directly into the HTML template
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
-      inject: 'body'
+      inject: 'body',
     }),
 
     // Pass NODE_ENV and APP_CONFIG to application
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(
-          process.env.NODE_ENV
-        ),
-        APP_CONFIG: JSON.stringify(
-          appConfig
-        )
-      }
-    })
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        APP_CONFIG: JSON.stringify(appConfig),
+      },
+    }),
   ];
 }
 
-function getCodeSplittingConfig () {
+function getCodeSplittingConfig() {
   return {
     splitChunks: {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
-          chunks: 'initial'
-        }
-      }
+          chunks: 'initial',
+        },
+      },
     },
     runtimeChunk: {
-      name: 'manifest'
+      name: 'manifest',
     },
     minimizer: [
       new TerserPlugin({
@@ -78,10 +74,10 @@ function getCodeSplittingConfig () {
           ecma: 8,
           mangle: false,
           keep_classnames: true,
-          keep_fnames: true
-        }
-      })
-    ]
+          keep_fnames: true,
+        },
+      }),
+    ],
   };
 }
 
@@ -89,7 +85,7 @@ function getCodeSplittingConfig () {
  * Get Webpack file parsing rules
  * @returns {*[]}
  */
-function getParserRules () {
+function getParserRules() {
   const devSassLoaders = ['style-loader', 'css-loader', 'sass-loader'];
 
   // // Extract CSS and autoprefix
@@ -110,7 +106,7 @@ function getParserRules () {
     {
       test: /\.(js|jsx)$/,
       loaders: 'babel-loader',
-      include: APP_DIR
+      include: APP_DIR,
     },
     {
       test: /\.(sa|sc|c)ss$/,
@@ -118,28 +114,28 @@ function getParserRules () {
         {
           loader: MiniCssExtractPlugin.loader,
           options: {
-            hmr: isDevelopment
-          }
+            hmr: isDevelopment,
+          },
         },
         'css-loader',
         'postcss-loader',
-        'sass-loader'
-      ]
+        'sass-loader',
+      ],
     },
     {
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
       loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]',
-      include: APP_DIR
+      include: APP_DIR,
     },
     {
       test: /\.ico$/,
-      loader: 'file-loader?name=[name].[ext]'
+      loader: 'file-loader?name=[name].[ext]',
     },
     {
       test: /\.json$/,
       loader: 'json-loader',
-      include: APP_DIR
-    }
+      include: APP_DIR,
+    },
   ];
 }
 
@@ -148,17 +144,18 @@ const webpackConfig = {};
 // Configure the output directory and bundle name
 webpackConfig.output = {
   path: path.join(__dirname, 'docs'),
-  filename: '[name].[hash].js'
+  filename: '[name].[hash].js',
 };
 
 // Allow webpack to automatically resolve import extensions
 webpackConfig.resolve = {
   extensions: ['.js', '.jsx', '.json', 'scss'],
   alias: {
+    '~common': path.resolve(APP_DIR, 'common/'),
     '~components': path.resolve(APP_DIR, 'components/'),
     '~redux': path.resolve(APP_DIR, 'redux/'),
-    '~services': path.resolve(APP_DIR, 'services/')
-  }
+    '~services': path.resolve(APP_DIR, 'services/'),
+  },
 };
 
 // Set up code splitting
@@ -169,7 +166,7 @@ webpackConfig.plugins = getPlugins();
 
 // Set up file parsing rules
 webpackConfig.module = {
-  rules: getParserRules()
+  rules: getParserRules(),
 };
 
 // Add additional configurations based on NODE_ENV
@@ -183,11 +180,9 @@ if (!NodeUtils.isDevelopment()) {
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
     'webpack/hot/only-dev-server',
-    './src/Bootstrap'
+    './src/Bootstrap',
   ];
-  webpackConfig.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
-  );
+  webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
 module.exports = webpackConfig;

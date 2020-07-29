@@ -1,43 +1,25 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import { format } from 'date-fns';
 import isEmpty from 'lodash/isEmpty';
-import { connect } from 'react-redux';
-import { resetEntity, deleteEntity } from 'redux-entity';
 
 import Icon from '../../common/Icon';
+import NoEntity from '~components/examples/redux-entity/NoEntity';
+import { Button } from '~components/common';
 
 class Entity extends Component {
-  constructor (props) {
-    super(props);
-    this.deleteEntity = this.deleteEntity.bind(this);
-    this.resetEntity = this.resetEntity.bind(this);
+  componentDidMount() {
+    this.props.fetchEntity();
   }
 
-  componentDidMount () {
-    if (this.props.runFetchEntityOnMount) {
-      this.props.fetchEntity();
-    }
-  }
-
-  deleteEntity () {
-    const { name, deleteEntity } = this.props;
-    deleteEntity(name);
-  }
-
-  resetEntity () {
-    const { name, resetEntity } = this.props;
-    resetEntity(name, Date.now());
-  }
-
-  renderContent (name, entity) {
+  renderContent(name, entity) {
     const { append } = this.props;
     const { isFetching, data, error } = entity;
 
     if (error) {
       return (
         <div className="m-top--small m-bottom--small">
-          <Icon icon="exclamation-triangle" className="has-text-danger"/>
+          <Icon icon="exclamation-triangle" className="has-text-danger" />
           &nbsp;Failed to fetch&nbsp;<code>{name}</code>
           &nbsp;due to&nbsp;<code className="has-text-danger">{error.toString()}</code>
         </div>
@@ -45,11 +27,7 @@ class Entity extends Component {
     }
 
     if (isFetching) {
-      return (
-        <div className="m-top--small m-bottom--small">
-          Fetching fresh data!
-        </div>
-      );
+      return <div className="m-top--small m-bottom--small">Fetching fresh data!</div>;
     }
 
     if (isEmpty(data)) {
@@ -64,118 +42,66 @@ class Entity extends Component {
 
     return (
       <div className="m-top--small m-bottom--small">
-        <Icon icon="check" className="has-text-success"/>&nbsp;
+        <Icon icon="check" className="has-text-success" />
+        &nbsp;
         {action}
         <code>{name}</code>
-        <span>&nbsp;@&nbsp;<code>{moment(data.lastUpdated).format('LTS')}</code>
+        <span>
+          &nbsp;@&nbsp;<code>{data.lastUpdated && format(new Date(data.lastUpdated), 'pp')}</code>
         </span>
       </div>
     );
   }
 
-  fetchButton (isFetching) {
-    return (
-      <p key="Fetch" className="control">
-        <a className={`button is-info ${isFetching ? 'is-loading' : ''}`} onClick={this.props.fetchEntity}>
-          <span className="icon">
-            <Icon icon="download"/>
-          </span>
-          <span>Fetch</span>
-        </a>
-      </p>
-    );
-  }
-
-  resetButton (isFetching) {
-    const onClick = !isFetching ? this.resetEntity : () => {};
-    return (
-      <p key="Reset" className="control">
-        <a className="button" disabled={isFetching} onClick={onClick}>
-          <span className="icon">
-            <Icon icon="history"/>
-          </span>
-          <span>Reset</span>
-        </a>
-      </p>
-    );
-  }
-
-  deleteButton (isFetching) {
-    const onClick = !isFetching ? this.deleteEntity : () => {};
-    return (
-      <p key="Delete" className="control">
-        <a className="button is-danger" disabled={isFetching} onClick={onClick}>
-          <span className="icon">
-            <Icon icon="trash"/>
-          </span>
-          <span>Delete</span>
-        </a>
-      </p>
-    );
-  }
-
-  render () {
-    const { name, entity } = this.props;
+  render() {
+    const { name, entity, fetchEntity } = this.props;
 
     if (isEmpty(entity)) {
       return (
         <Fragment>
-          <NoEntity name={name}/>
-          {this.fetchButton()}
+          <NoEntity name={name} />
+          <Button icon="download" onClick={fetchEntity} theme="is-info">
+            Fetch
+          </Button>
         </Fragment>
       );
     }
 
     const { isFetching } = entity;
+    const { resetEntity, deleteEntity } = this.props;
 
     return (
       <div>
         {this.renderContent(name, entity)}
         <div className="field has-addons">
-          {this.fetchButton(isFetching)}
-          {this.resetButton(isFetching)}
-          {this.deleteButton(isFetching)}
+          <Button icon="download" onClick={fetchEntity} disabled={isFetching} loading={isFetching} theme="is-info">
+            Fetch
+          </Button>
+          <Button icon="history" onClick={() => resetEntity(name)} disabled={isFetching}>
+            Reset
+          </Button>
+          <Button icon="trash" onClick={() => deleteEntity(name)} disabled={isFetching} theme="is-danger">
+            Delete
+          </Button>
         </div>
       </div>
     );
   }
 }
 
-const NoEntity = ({ name }) => (
-  <div className="m-top--small m-bottom--small">
-    <Icon icon="exclamation-triangle" className="has-text-danger"/>
-    &nbsp;Entity&nbsp;<code>{name}</code>&nbsp;does not exist on&nbsp;<code>entities</code>
-  </div>
-);
-
-NoEntity.propTypes = {
-  name: PropTypes.string.isRequired
-};
+export default Entity;
 
 Entity.propTypes = {
   name: PropTypes.string.isRequired,
   append: PropTypes.bool,
   entity: PropTypes.shape({
     isFetching: PropTypes.bool,
-    lastUpdated: PropTypes.number,
-    data: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-      PropTypes.array
-    ]),
-    error: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ])
+    lastUpdated: PropTypes.Date,
+    data: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.array]),
+    error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   runFetchEntityOnMount: PropTypes.bool,
   fetchEntity: PropTypes.func.isRequired,
   resetEntity: PropTypes.func.isRequired,
-  deleteEntity: PropTypes.func.isRequired
+  deleteEntity: PropTypes.func.isRequired,
 };
-
-export default connect(null, {
-  resetEntity,
-  deleteEntity
-})(Entity);

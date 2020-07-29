@@ -8,9 +8,7 @@ class CleanPlugin {
   }
 
   apply() {
-    del.sync(
-      this.options.files
-    );
+    del.sync(this.options.files);
   }
 }
 

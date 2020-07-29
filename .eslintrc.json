@@ -2,13 +2,13 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true,
+    "jest": true,
     "es6": true
   },
   "globals": {
     "_": true
   },
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
@@ -16,26 +16,32 @@
       "jsx": true
     }
   },
-  "plugins": ["react"],
-  "extends": [ "eslint:recommended", "standard", "plugin:react/recommended" ],
+  "plugins": ["react", "@typescript-eslint"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react/recommended"],
   "settings": {
     "react": {
       "pragma": "React",
       "version": "16.6.3s"
     }
   },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
   "rules": {
     "eqeqeq": [2, "always"],
-    "indent": [2, 2, { "SwitchCase": 1 }],
-    "jsx-quotes": [2, "prefer-double"],
-    "react/display-name": [0, { "ignoreTranspilerName": true }],
-    "no-console": ["error", { "allow": ["log", "warn", "error"]}],
+    "no-console": ["error", { "allow": ["log", "warn", "error"] }],
     "no-debugger": 2,
     "no-extend-native": 0,
     "no-var": 1,
     "quotes": [2, "single"],
-    "react/prop-types": 1,
-    "react/no-find-dom-node": 0,
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "space-before-function-paren": ["off"],
+    "max-len": ["error", { "code": 120 }],
+    "comma-dangle": ["off"]
   }
 }

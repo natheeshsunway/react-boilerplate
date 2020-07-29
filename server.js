@@ -15,17 +15,11 @@ if (NodeService.isProduction()) {
   const app = express();
 
   // Configure static resources
-  app.use(
-    express.static(
-      path.join(__dirname, '/docs')
-    )
-  );
+  app.use(express.static(path.join(__dirname, '/docs')));
 
   // Configure server-side routing
   app.get('*', (req, res) => {
-    const dist = path.join(
-      __dirname, '/docs/index.html'
-    );
+    const dist = path.join(__dirname, '/docs/index.html');
     res.sendFile(dist);
   });
 
@@ -40,8 +34,8 @@ if (NodeService.isProduction()) {
 
   new WebpackDevServer(webpack(config), {
     hot: true,
-    historyApiFallback: true
-  }).listen(PORT, 'localhost', error => {
+    historyApiFallback: true,
+  }).listen(PORT, 'localhost', (error) => {
     console.log(error || `Started WebpackDevServer on port ${PORT}`);
   });
 }
