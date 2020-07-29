@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames/bind';
+
 import Icon from './common/Icon';
-import Flex from './common/glamorous/Flex';
+
+import styles from '~components/styles/Footer.scss';
+
+const cx = classnames.bind(styles);
 
 const Footer = () => {
   return (
@@ -19,7 +24,7 @@ const Footer = () => {
             code</a> is licensed under <a
               href="https://github.com/mikechabot/react-boilerplate/blob/master/LICENSE">MIT</a>.
           </p>
-          <Flex hAlignCenter>
+          <div className={cx('footer--buttons')}>
             <GithubButton
               label="Star"
               icon="octicon-star"
@@ -38,7 +43,7 @@ const Footer = () => {
               href="mikechabot/react-boilerplate/subscription"
               ariaLabel="Watch mikechabot/react-boilerplate on GitHub"
             />
-          </Flex>
+          </div>
         </div>
 
       </div>

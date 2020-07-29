@@ -1,5 +1,5 @@
 import { ENTITY_KEY } from '../../common/app-const';
-import { loadEntity } from 'redux-entity';
+import { GetEntity } from 'redux-entity';
 import ExampleDomainService from '../../services/domain/example-domain-service';
 
 /**
@@ -7,7 +7,7 @@ import ExampleDomainService from '../../services/domain/example-domain-service';
  * @returns {Function}  thunk
  */
 export function fetchFoo () {
-  return loadEntity(
+  return GetEntity(
     ENTITY_KEY.FOO,
     ExampleDomainService.getFakePromise()
   );
@@ -18,7 +18,7 @@ export function fetchFoo () {
  * @returns {Function}  thunk
  */
 export function fetchBar () {
-  return loadEntity(
+  return GetEntity(
     ENTITY_KEY.BAR,
     ExampleDomainService.getFakePromise(),
     { append: true }
@@ -30,11 +30,8 @@ export function fetchBar () {
  * @returns {Function}  thunk
  */
 export function fetchBaz () {
-  return loadEntity(
+  return GetEntity(
     ENTITY_KEY.BAZ,
     ExampleDomainService.getFakePromise(true)
-      .catch(error => {
-        console.error(error);
-      })
   );
 }

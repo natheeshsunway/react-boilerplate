@@ -61,16 +61,13 @@ class Entity extends Component {
     }
 
     const action = append ? 'Appending to ' : 'Fetch for ';
-    const message = append ? <span>&nbsp;took&nbsp;<code>{data.delay}s</code></span> : null;
 
     return (
       <div className="m-top--small m-bottom--small">
         <Icon icon="check" className="has-text-success"/>&nbsp;
         {action}
         <code>{name}</code>
-        {message}
-        <span>
-            @&nbsp;<code>{moment(data.lastUpdated).format('LTS')}</code>
+        <span>&nbsp;@&nbsp;<code>{moment(data.lastUpdated).format('LTS')}</code>
         </span>
       </div>
     );

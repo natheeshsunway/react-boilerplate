@@ -14,6 +14,8 @@ const appConfig = require('./config/config');
 
 const APP_DIR = path.join(__dirname, 'src');
 
+const isDevelopment = NodeUtils.isDevelopment();
+
 /**
  * Get webpack plugins
  * @returns {*[]}
@@ -25,10 +27,11 @@ function getPlugins () {
       files: ['docs/*']
     }),
 
-    // Extract CSS to a separate file
     new MiniCssExtractPlugin({
-      filename: !NodeUtils.isDevelopment() ? '[name].[hash].css' : '[name].css',
-      chunkFilename: !NodeUtils.isDevelopment() ? '[id].[hash].css' : '[id].css'
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
     }),
 
     // Ignore moment locales
@@ -89,19 +92,19 @@ function getCodeSplittingConfig () {
 function getParserRules () {
   const devSassLoaders = ['style-loader', 'css-loader', 'sass-loader'];
 
-  // Extract CSS and autoprefix
-  const prodSassLoaders = [
-    MiniCssExtractPlugin.loader, 'css-loader',
-    {
-      loader: 'postcss-loader',
-      options: {
-        plugins: () => [
-          autoprefixer({
-            browsers: ['last 2 version']
-          })
-        ]
-      }
-    }, 'sass-loader'];
+  // // Extract CSS and autoprefix
+  // const prodSassLoaders = [
+  //   MiniCssExtractPlugin.loader, 'css-loader',
+  //   {
+  //     loader: 'postcss-loader',
+  //     options: {
+  //       plugins: () => [
+  //         autoprefixer({
+  //           browsers: ['last 2 version']
+  //         })
+  //       ]
+  //     }
+  //   }, 'sass-loader'];
 
   return [
     {
@@ -110,9 +113,18 @@ function getParserRules () {
       include: APP_DIR
     },
     {
-      test: /\.scss$/,
-      use: !NodeUtils.isDevelopment() ? prodSassLoaders : devSassLoaders,
-      include: APP_DIR
+      test: /\.(sa|sc|c)ss$/,
+      use: [
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            hmr: isDevelopment
+          }
+        },
+        'css-loader',
+        'postcss-loader',
+        'sass-loader'
+      ]
     },
     {
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
@@ -136,12 +148,17 @@ const webpackConfig = {};
 // Configure the output directory and bundle name
 webpackConfig.output = {
   path: path.join(__dirname, 'docs'),
-  filename: '[name].[contenthash].js'
+  filename: '[name].[hash].js'
 };
 
 // Allow webpack to automatically resolve import extensions
 webpackConfig.resolve = {
-  extensions: ['.js', '.jsx', '.json']
+  extensions: ['.js', '.jsx', '.json', 'scss'],
+  alias: {
+    '~components': path.resolve(APP_DIR, 'components/'),
+    '~redux': path.resolve(APP_DIR, 'redux/'),
+    '~services': path.resolve(APP_DIR, 'services/')
+  }
 };
 
 // Set up code splitting

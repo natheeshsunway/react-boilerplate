@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import _isObject from 'lodash/isObject';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import isObject from 'lodash/isObject';
 
 const stringifyErrors = (obj) => {
   if (!obj) return;
@@ -18,7 +18,7 @@ const stringifyErrors = (obj) => {
 
 const getContestAsString = (content) => {
   stringifyErrors(content);
-  return _isObject(content)
+  return isObject(content)
     ? JSON.stringify(content, null, 2)
     : content;
 };

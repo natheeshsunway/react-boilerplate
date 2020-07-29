@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classnames from 'classnames/bind';
 import Entity from './Entity';
 import { connect } from 'react-redux';
 
-import Flex from '../../common/glamorous/Flex';
 import { fetchFoo, fetchBar, fetchBaz } from '../../../redux/actions/thunks';
 import { ENTITY_KEY } from '../../../common/app-const';
+
+import styles from '~components/examples/redux-entity/styles/ReduxEntity.scss';
+
+const cx = classnames.bind(styles);
 
 const ReduxEntity = ({
   entities,
@@ -24,7 +28,7 @@ const ReduxEntity = ({
     }
   };
   return (
-    <Flex column className="notification is-light m-top--small">
+    <div className={`${cx('redux-entity--container')} notification is-light m-top--small`}>
       {
         Object.keys(ENTITY_KEY).map((key, index) => {
           const entityKey = ENTITY_KEY[key];
@@ -39,7 +43,7 @@ const ReduxEntity = ({
           );
         })
       }
-    </Flex>
+    </div>
   );
 };
 
@@ -50,9 +54,4 @@ ReduxEntity.propTypes = {
   fetchBaz: PropTypes.func.isRequired
 };
 
-export default connect(
-  (state) => ({
-    entities: state.entities
-  }),
-  { fetchFoo, fetchBar, fetchBaz }
-)(ReduxEntity);
+export default ReduxEntity;

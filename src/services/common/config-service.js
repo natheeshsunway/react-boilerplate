@@ -1,7 +1,6 @@
-'use strict';
 
-const DomainObjectService = require('./domain-object-service');
 const NodeUtils = require('./node-service');
+const get = require('lodash/get');
 
 module.exports = {
   getConfig () {
@@ -9,9 +8,7 @@ module.exports = {
   },
   getProperty (key) {
     if (!key) throw new Error('Key cannot be null/undefined');
-    return DomainObjectService.getPropertyValue(
-      this.getConfig(), key
-    );
+    return get(this.getConfig(), key);
   },
   getRequiredProperty (key) {
     const value = this.getProperty(key);

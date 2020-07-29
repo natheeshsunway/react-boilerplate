@@ -20,7 +20,7 @@ export const reset = makeActionCreator(RESET_COUNTER);
 export function makeActionCreator (type, ...keys) {
   if (!type) throw new Error('Type cannot be null/undefined');
   return function (...args) {
-    let action = { type };
+    const action = { type };
     keys.forEach((arg, index) => {
       action[keys[index]] = args[index];
     });

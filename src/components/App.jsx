@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import classnames from 'classnames/bind';
 
 import ReduxEntity from './examples/redux-entity/ReduxEntity';
 import ReduxState from './examples/ReduxState';
@@ -9,13 +10,17 @@ import AsyncTabbedRouter from './examples/router/AsyncTabbedRouter';
 import Icon from './common/Icon';
 import NavBar from './common/bulma/Navbar';
 import Footer from './Footer';
-import Flex from './common/glamorous/Flex';
+
+import styles from '~components/styles/App.scss';
+import ConnectedReduxEntity from '~components/examples/redux-entity/ConnectedReduxEntity';
 
 const URL = {
   REDUX_ENTITY: 'https://github.com/mikechabot/redux-entity',
   REACT_ROUTER: 'https://github.com/ReactTraining/react-router',
   BOILERPLATE: 'http://www.github.com/mikechabot/react-boilerplate'
 };
+
+const cx = classnames.bind(styles);
 
 const ColumnBody = ({ title, subtitle, icon, body }) => (
   <Fragment>
@@ -68,7 +73,7 @@ const Body = ({
                     <a href={URL.REDUX_ENTITY}>redux-entity</a>&nbsp;for domain entity management
                   </span>
                 )}
-                body={<ReduxEntity />}
+                body={<ConnectedReduxEntity />}
               />
             </div>
 
@@ -94,7 +99,7 @@ const Body = ({
 
 const App = ({ location, history }) => {
   return (
-    <Flex column height="100%" width="100%" justifyContent="space-between">
+    <div className={cx('app-container')}>
       <div>
         <NavBar
           url={URL.BOILERPLATE}
@@ -103,7 +108,7 @@ const App = ({ location, history }) => {
       </div>
       <Body location={location} history={history}/>
       <Footer/>
-    </Flex>
+    </div>
   );
 };
 
