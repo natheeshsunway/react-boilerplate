@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { fetchBar, fetchBaz, fetchFoo } from '~redux/actions/thunks';
+import { fetchBar, fetchBaz, fetchFoo } from '~reducers/entities/actions';
 
 import ReduxEntity from '~components/examples/redux-entity/ReduxEntity';
 
 const mapStateToProps = (state) => ({
-  entities: state.entities
+  entities: state.entities,
 });
 
 const mapDispatchToProps = { fetchFoo, fetchBar, fetchBaz };

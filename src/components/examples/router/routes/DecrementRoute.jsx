@@ -2,8 +2,8 @@ import React from 'react';
 
 import RouteContent from '~components/examples/router/RouteContent';
 
-import { decrement } from '~redux/actions/action-creators';
+import { decrementAction } from '~reducers/counter/actions';
 
-const DecrementRoute = () => <RouteContent icon="minus" path="/decrement" label="Decrement" action={decrement} />;
+const DecrementRoute = () => <RouteContent icon="minus" path="/decrement" label="Decrement" action={decrementAction} />;
 
 export default DecrementRoute;

@@ -13,6 +13,7 @@ const NodeUtils = require('./src/services/common/node-service');
 const appConfig = require('./config/config');
 
 const APP_DIR = path.join(__dirname, 'src');
+const NODE_MODULES = path.join(__dirname, 'node_modules');
 
 const isDevelopment = NodeUtils.isDevelopment();
 
@@ -104,9 +105,16 @@ function getParserRules() {
 
   return [
     {
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      include: APP_DIR,
+      exclude: NODE_MODULES,
+    },
+    {
       test: /\.(js|jsx)$/,
       loaders: 'babel-loader',
       include: APP_DIR,
+      exclude: NODE_MODULES,
     },
     {
       test: /\.(sa|sc|c)ss$/,
@@ -121,20 +129,25 @@ function getParserRules() {
         'postcss-loader',
         'sass-loader',
       ],
+      include: APP_DIR,
+      exclude: NODE_MODULES,
     },
     {
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
       loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]',
       include: APP_DIR,
+      exclude: NODE_MODULES,
     },
     {
       test: /\.ico$/,
       loader: 'file-loader?name=[name].[ext]',
+      exclude: NODE_MODULES,
     },
     {
       test: /\.json$/,
       loader: 'json-loader',
       include: APP_DIR,
+      exclude: NODE_MODULES,
     },
   ];
 }
@@ -149,11 +162,11 @@ webpackConfig.output = {
 
 // Allow webpack to automatically resolve import extensions
 webpackConfig.resolve = {
-  extensions: ['.js', '.jsx', '.json', 'scss'],
+  extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'scss'],
   alias: {
     '~common': path.resolve(APP_DIR, 'common/'),
     '~components': path.resolve(APP_DIR, 'components/'),
-    '~redux': path.resolve(APP_DIR, 'redux/'),
+    '~reducers': path.resolve(APP_DIR, 'reducers/'),
     '~services': path.resolve(APP_DIR, 'services/'),
   },
 };

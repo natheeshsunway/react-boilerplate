@@ -2,8 +2,8 @@ import React from 'react';
 
 import RouteContent from '~components/examples/router/RouteContent';
 
-import { reset } from '~redux/actions/action-creators';
+import { resetAction } from '~reducers/counter/actions';
 
-const ResetRoute = () => <RouteContent icon="history" path="/reset" label="Reset" action={reset} />;
+const ResetRoute = () => <RouteContent icon="history" path="/reset" label="Reset" action={resetAction} />;
 
 export default ResetRoute;

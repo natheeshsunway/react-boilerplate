@@ -1,0 +1,23 @@
+{
+  "include": ["./src/**/*"],
+  "exclude": ["./src/**/*.spec.ts"],
+  "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "Node",
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "jsx": "react",
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "~common/*": ["common/*"],
+      "~components/*": ["components/*"],
+      "~reducers/*": ["reducers/*"],
+      "~services/*": ["services/*"]
+    }
+  }
+}

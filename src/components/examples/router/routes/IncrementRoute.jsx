@@ -2,8 +2,8 @@ import React from 'react';
 
 import RouteContent from '~components/examples/router/RouteContent';
 
-import { increment } from '~redux/actions/action-creators';
+import { incrementAction } from '~reducers/counter/actions';
 
-const IncrementRoute = () => <RouteContent icon="plus" path="/" label="Increment" action={increment} />;
+const IncrementRoute = () => <RouteContent icon="plus" path="/" label="Increment" action={incrementAction} />;
 
 export default IncrementRoute;

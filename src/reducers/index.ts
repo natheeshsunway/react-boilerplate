@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { reducer as entities } from 'redux-entity';
-import counter from './counter';
+import entities from '~reducers/entities/reducer';
+import counter from '~reducers/counter/reducer';
 
 export default combineReducers({
   counter,

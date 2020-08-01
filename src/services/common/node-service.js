@@ -23,5 +23,5 @@ module.exports = svc = {
   },
   isTest: function () {
     return !svc.getNodeEnvMode() || svc.getNodeEnvMode() === 'test';
-  }
+  },
 };
