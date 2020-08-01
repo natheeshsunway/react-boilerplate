@@ -9,6 +9,8 @@
     ,
     ,
     ,
+    ,
+    ,
     function (module, exports, __webpack_require__) {
       'use strict';
       var __importDefault =
@@ -39,21 +41,21 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var Icon_1 = __webpack_require__(8);
+      var Icon_1 = __webpack_require__(10);
       Object.defineProperty(exports, 'Icon', {
         enumerable: !0,
         get: function () {
           return Icon_1.default;
         },
       });
-      var Button_1 = __webpack_require__(131);
+      var Button_1 = __webpack_require__(134);
       Object.defineProperty(exports, 'Button', {
         enumerable: !0,
         get: function () {
           return Button_1.default;
         },
       });
-      var Link_1 = __webpack_require__(132);
+      var Link_1 = __webpack_require__(135);
       Object.defineProperty(exports, 'Link', {
         enumerable: !0,
         get: function () {
@@ -86,7 +88,6 @@
           REACT_ROUTER: 'https://github.com/ReactTraining/react-router',
         });
     },
-    ,
     ,
     ,
     ,
@@ -136,7 +137,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        Icon_1 = __importDefault(__webpack_require__(8));
+        Icon_1 = __importDefault(__webpack_require__(10));
       exports.default = ({ title, subtitle, icon, children }) =>
         React.createElement(
           React.Fragment,
@@ -172,10 +173,10 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        react_redux_1 = __webpack_require__(14),
-        Icon_1 = __importDefault(__webpack_require__(8)),
-        RouteContent_scss_1 = __importDefault(__webpack_require__(185)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        react_redux_1 = __webpack_require__(16),
+        Icon_1 = __importDefault(__webpack_require__(10)),
+        RouteContent_scss_1 = __importDefault(__webpack_require__(188)),
         cx = bind_1.default.bind(RouteContent_scss_1.default);
       exports.default = ({ path, label, action, icon }) => {
         const dispatch = react_redux_1.useDispatch(),
@@ -220,11 +221,13 @@
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 }),
         (exports.resetAction = exports.decrementAction = exports.incrementAction = void 0);
-      const reducer_1 = __webpack_require__(43);
+      const reducer_1 = __webpack_require__(46);
       (exports.incrementAction = () => ({ type: reducer_1.INCREMENT_COUNTER })),
         (exports.decrementAction = () => ({ type: reducer_1.DECREMENT_COUNTER })),
         (exports.resetAction = () => ({ type: reducer_1.RESET_COUNTER }));
     },
+    ,
+    ,
     ,
     ,
     ,
@@ -234,7 +237,7 @@
       module.exports = {
         getNodeEnv: function getNodeEnv() {
           return Object({
-            NODE_ENV: 'production',
+            NODE_ENV: 'gh-pages',
             APP_CONFIG: {
               example: { port: 3060, baseUrl: 'http://localhost:3020/', publicBasename: 'react-boilerplate/' },
             },
@@ -243,7 +246,7 @@
         getNodeEnvByKey: function getNodeEnvByKey(key) {
           if (!key) throw new Error('Key cannot be null/undefined');
           return Object({
-            NODE_ENV: 'production',
+            NODE_ENV: 'gh-pages',
             APP_CONFIG: {
               example: { port: 3060, baseUrl: 'http://localhost:3020/', publicBasename: 'react-boilerplate/' },
             },
@@ -275,9 +278,9 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const redux_1 = __webpack_require__(15),
-        reducer_1 = __importDefault(__webpack_require__(81)),
-        reducer_2 = __importDefault(__webpack_require__(43)),
+      const redux_1 = __webpack_require__(17),
+        reducer_1 = __importDefault(__webpack_require__(85)),
+        reducer_2 = __importDefault(__webpack_require__(46)),
         rootReducer = redux_1.combineReducers({ counter: reducer_2.default, entities: reducer_1.default });
       exports.default = rootReducer;
     },
@@ -303,8 +306,8 @@
     },
     ,
     function (module, exports, __webpack_require__) {
-      var NodeUtils = __webpack_require__(40),
-        get = __webpack_require__(92);
+      var NodeUtils = __webpack_require__(43),
+        get = __webpack_require__(95);
       module.exports = {
         getConfig: () => ({
           example: { port: 3060, baseUrl: 'http://localhost:3020/', publicBasename: 'react-boilerplate/' },
@@ -407,12 +410,12 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        react_dom_1 = __importDefault(__webpack_require__(27)),
-        react_hot_loader_1 = __webpack_require__(76),
-        store_1 = __importDefault(__webpack_require__(78)),
-        Root_1 = __importDefault(__webpack_require__(87));
-      __webpack_require__(243),
-        __webpack_require__(244),
+        react_dom_1 = __importDefault(__webpack_require__(28)),
+        react_hot_loader_1 = __webpack_require__(81),
+        store_1 = __importDefault(__webpack_require__(82)),
+        Root_1 = __importDefault(__webpack_require__(91));
+      __webpack_require__(246),
+        __webpack_require__(247),
         react_dom_1.default.render(
           React.createElement(
             react_hot_loader_1.AppContainer,
@@ -428,6 +431,7 @@
     ,
     ,
     ,
+    ,
     function (module, exports, __webpack_require__) {
       'use strict';
       var __importDefault =
@@ -436,9 +440,9 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const node_service_1 = __importDefault(__webpack_require__(40)),
-        configure_store_prod_1 = __importDefault(__webpack_require__(79)),
-        configure_store_dev_1 = __importDefault(__webpack_require__(86));
+      const node_service_1 = __importDefault(__webpack_require__(43)),
+        configure_store_prod_1 = __importDefault(__webpack_require__(83)),
+        configure_store_dev_1 = __importDefault(__webpack_require__(90));
       exports.default = node_service_1.default.isProduction()
         ? configure_store_prod_1.default()
         : configure_store_dev_1.default();
@@ -451,10 +455,10 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const redux_1 = __webpack_require__(15),
-        redux_thunk_1 = __importDefault(__webpack_require__(41)),
-        index_1 = __importDefault(__webpack_require__(42)),
-        redux_logger_1 = __importDefault(__webpack_require__(44));
+      const redux_1 = __webpack_require__(17),
+        redux_thunk_1 = __importDefault(__webpack_require__(44)),
+        index_1 = __importDefault(__webpack_require__(45)),
+        redux_logger_1 = __importDefault(__webpack_require__(47));
       exports.default = function configureStore(initialState = {}) {
         return redux_1.createStore(
           index_1.default,
@@ -467,7 +471,7 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var lib_1 = __webpack_require__(28);
+      var lib_1 = __webpack_require__(29);
       Object.defineProperty(exports, 'default', {
         enumerable: !0,
         get: function () {
@@ -487,10 +491,10 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const redux_1 = __webpack_require__(15),
-        redux_thunk_1 = __importDefault(__webpack_require__(41)),
-        redux_logger_1 = __importDefault(__webpack_require__(44)),
-        index_1 = __importDefault(__webpack_require__(42));
+      const redux_1 = __webpack_require__(17),
+        redux_thunk_1 = __importDefault(__webpack_require__(44)),
+        redux_logger_1 = __importDefault(__webpack_require__(47)),
+        index_1 = __importDefault(__webpack_require__(45));
       exports.default = function configureStore(initialState = {}) {
         return redux_1.createStore(
           index_1.default,
@@ -542,10 +546,10 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        react_redux_1 = __webpack_require__(14),
-        react_router_dom_1 = __webpack_require__(69),
-        config_service_1 = __importDefault(__webpack_require__(45)),
-        App_1 = __importDefault(__webpack_require__(129));
+        react_redux_1 = __webpack_require__(16),
+        react_router_dom_1 = __webpack_require__(72),
+        config_service_1 = __importDefault(__webpack_require__(48)),
+        App_1 = __importDefault(__webpack_require__(132));
       exports.default = ({ store }) =>
         React.createElement(
           react_redux_1.Provider,
@@ -597,7 +601,6 @@
     ,
     ,
     ,
-    ,
     function (module, exports, __webpack_require__) {
       'use strict';
       var __importDefault =
@@ -607,13 +610,13 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        Navbar_1 = __importDefault(__webpack_require__(130)),
-        Footer_1 = __importDefault(__webpack_require__(135)),
-        ReactRouter_1 = __importDefault(__webpack_require__(143)),
-        ReduxEntity_1 = __importDefault(__webpack_require__(188)),
-        ReduxState_1 = __importDefault(__webpack_require__(239)),
-        App_scss_1 = __importDefault(__webpack_require__(242)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        Navbar_1 = __importDefault(__webpack_require__(133)),
+        Footer_1 = __importDefault(__webpack_require__(138)),
+        ReactRouter_1 = __importDefault(__webpack_require__(146)),
+        ReduxEntity_1 = __importDefault(__webpack_require__(191)),
+        ReduxState_1 = __importDefault(__webpack_require__(242)),
+        App_scss_1 = __importDefault(__webpack_require__(245)),
         cx = bind_1.default.bind(App_scss_1.default);
       exports.default = () =>
         react_1.default.createElement(
@@ -674,11 +677,11 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        common_1 = __webpack_require__(12),
-        logo_png_1 = __importDefault(__webpack_require__(133)),
-        const_1 = __webpack_require__(24),
-        NavBar_scss_1 = __importDefault(__webpack_require__(134)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        common_1 = __webpack_require__(14),
+        logo_png_1 = __importDefault(__webpack_require__(136)),
+        const_1 = __webpack_require__(26),
+        NavBar_scss_1 = __importDefault(__webpack_require__(137)),
         cx = bind_1.default.bind(NavBar_scss_1.default);
       exports.default = ({ url, label }) =>
         react_1.default.createElement(
@@ -739,7 +742,7 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        Icon_1 = __importDefault(__webpack_require__(8));
+        Icon_1 = __importDefault(__webpack_require__(10));
       exports.default = ({ icon, disabled, loading, onClick, children, theme = '' }) =>
         react_1.default.createElement(
           'p',
@@ -807,7 +810,7 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var Footer_1 = __webpack_require__(136);
+      var Footer_1 = __webpack_require__(139);
       Object.defineProperty(exports, 'default', {
         enumerable: !0,
         get: function () {
@@ -858,11 +861,11 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        common_1 = __webpack_require__(12),
-        GithubButtons_1 = __importDefault(__webpack_require__(137)),
-        const_1 = __webpack_require__(24),
-        Footer_scss_1 = __importDefault(__webpack_require__(142)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        common_1 = __webpack_require__(14),
+        GithubButtons_1 = __importDefault(__webpack_require__(140)),
+        const_1 = __webpack_require__(26),
+        Footer_scss_1 = __importDefault(__webpack_require__(145)),
         Repository =
           (bind_1.default.bind(Footer_scss_1.default),
           () =>
@@ -904,7 +907,7 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var GithubButtons_1 = __webpack_require__(138);
+      var GithubButtons_1 = __webpack_require__(141);
       Object.defineProperty(exports, 'default', {
         enumerable: !0,
         get: function () {
@@ -955,9 +958,9 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        GithubButton_1 = __importDefault(__webpack_require__(139)),
-        GithubButtons_scss_1 = __importDefault(__webpack_require__(141)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        GithubButton_1 = __importDefault(__webpack_require__(142)),
+        GithubButtons_scss_1 = __importDefault(__webpack_require__(144)),
         cx = bind_1.default.bind(GithubButtons_scss_1.default);
       exports.default = () =>
         React.createElement(
@@ -1026,8 +1029,8 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        GithubButton_scss_1 = __importDefault(__webpack_require__(140)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        GithubButton_scss_1 = __importDefault(__webpack_require__(143)),
         cx = bind_1.default.bind(GithubButton_scss_1.default);
       exports.default = ({ label, icon, href, ariaLabel }) =>
         React.createElement(
@@ -1053,7 +1056,7 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var ReactRouter_1 = __webpack_require__(144);
+      var ReactRouter_1 = __webpack_require__(147);
       Object.defineProperty(exports, 'default', {
         enumerable: !0,
         get: function () {
@@ -1104,9 +1107,9 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        GenericSection_1 = __importDefault(__webpack_require__(32)),
-        AsyncTabbedRouter_1 = __importDefault(__webpack_require__(145)),
-        const_1 = __webpack_require__(24);
+        GenericSection_1 = __importDefault(__webpack_require__(33)),
+        AsyncTabbedRouter_1 = __importDefault(__webpack_require__(148)),
+        const_1 = __webpack_require__(26);
       exports.default = () =>
         React.createElement(
           GenericSection_1.default,
@@ -1167,20 +1170,20 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        react_router_dom_1 = __webpack_require__(69),
-        react_tabify_1 = __webpack_require__(146),
-        common_1 = __webpack_require__(12),
-        react_loadable_1 = __importDefault(__webpack_require__(183)),
+        react_router_dom_1 = __webpack_require__(72),
+        react_tabify_1 = __webpack_require__(149),
+        common_1 = __webpack_require__(14),
+        react_loadable_1 = __importDefault(__webpack_require__(186)),
         AsyncIncrement = react_loadable_1.default({
-          loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(184))),
+          loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(187))),
           loading: () => react_1.default.createElement(common_1.Icon, { icon: 'cog fa-spin' }),
         }),
         AsyncDecrement = react_loadable_1.default({
-          loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(186))),
+          loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(189))),
           loading: () => react_1.default.createElement(common_1.Icon, { icon: 'cog fa-spin' }),
         }),
         AsyncReset = react_loadable_1.default({
-          loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(187))),
+          loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(190))),
           loading: () => react_1.default.createElement(common_1.Icon, { icon: 'cog fa-spin' }),
         });
       exports.default = () => {
@@ -1262,8 +1265,8 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        RouteContent_1 = __importDefault(__webpack_require__(34)),
-        actions_1 = __webpack_require__(35);
+        RouteContent_1 = __importDefault(__webpack_require__(35)),
+        actions_1 = __webpack_require__(36);
       exports.default = () =>
         react_1.default.createElement(RouteContent_1.default, {
           icon: 'plus',
@@ -1282,8 +1285,8 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        RouteContent_1 = __importDefault(__webpack_require__(34)),
-        actions_1 = __webpack_require__(35);
+        RouteContent_1 = __importDefault(__webpack_require__(35)),
+        actions_1 = __webpack_require__(36);
       exports.default = () =>
         react_1.default.createElement(RouteContent_1.default, {
           icon: 'minus',
@@ -1301,8 +1304,8 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        RouteContent_1 = __importDefault(__webpack_require__(34)),
-        actions_1 = __webpack_require__(35);
+        RouteContent_1 = __importDefault(__webpack_require__(35)),
+        actions_1 = __webpack_require__(36);
       exports.default = () =>
         react_1.default.createElement(RouteContent_1.default, {
           icon: 'history',
@@ -1314,7 +1317,7 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var ReduxEntity_1 = __webpack_require__(189);
+      var ReduxEntity_1 = __webpack_require__(192);
       Object.defineProperty(exports, 'default', {
         enumerable: !0,
         get: function () {
@@ -1365,9 +1368,9 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        GenericSection_1 = __importDefault(__webpack_require__(32)),
-        Entities_1 = __importDefault(__webpack_require__(190)),
-        const_1 = __webpack_require__(24);
+        GenericSection_1 = __importDefault(__webpack_require__(33)),
+        Entities_1 = __importDefault(__webpack_require__(193)),
+        const_1 = __webpack_require__(26);
       exports.default = () =>
         React.createElement(
           GenericSection_1.default,
@@ -1394,12 +1397,12 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(7)),
-        react_redux_1 = __webpack_require__(14),
-        Entity_1 = __importDefault(__webpack_require__(191)),
-        actions_1 = __webpack_require__(215),
-        types_1 = __webpack_require__(68),
-        ReduxEntity_scss_1 = __importDefault(__webpack_require__(238)),
+        bind_1 = __importDefault(__webpack_require__(9)),
+        react_redux_1 = __webpack_require__(16),
+        Entity_1 = __importDefault(__webpack_require__(194)),
+        actions_1 = __webpack_require__(218),
+        types_1 = __webpack_require__(71),
+        ReduxEntity_scss_1 = __importDefault(__webpack_require__(241)),
         cx = bind_1.default.bind(ReduxEntity_scss_1.default);
       exports.default = () => {
         const dispatch = react_redux_1.useDispatch(),
@@ -1472,15 +1475,15 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importStar(__webpack_require__(0)),
-        react_redux_1 = __webpack_require__(14),
-        isEmpty_1 = __importDefault(__webpack_require__(192)),
-        common_1 = __webpack_require__(12),
-        EntityData_1 = __importDefault(__webpack_require__(210)),
-        EntityReset_1 = __importDefault(__webpack_require__(211)),
-        EntityMissing_1 = __importDefault(__webpack_require__(212)),
-        EntityFailure_1 = __importDefault(__webpack_require__(213)),
-        EntityLoading_1 = __importDefault(__webpack_require__(214)),
-        redux_entity_1 = __webpack_require__(28);
+        react_redux_1 = __webpack_require__(16),
+        isEmpty_1 = __importDefault(__webpack_require__(195)),
+        common_1 = __webpack_require__(14),
+        EntityData_1 = __importDefault(__webpack_require__(213)),
+        EntityReset_1 = __importDefault(__webpack_require__(214)),
+        EntityMissing_1 = __importDefault(__webpack_require__(215)),
+        EntityFailure_1 = __importDefault(__webpack_require__(216)),
+        EntityLoading_1 = __importDefault(__webpack_require__(217)),
+        redux_entity_1 = __webpack_require__(29);
       exports.default = ({ name, append, entity, fetchEntity }) => {
         const dispatch = react_redux_1.useDispatch();
         if (
@@ -1588,8 +1591,8 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        date_fns_1 = __webpack_require__(245),
-        Icon_1 = __webpack_require__(8);
+        date_fns_1 = __webpack_require__(248),
+        Icon_1 = __webpack_require__(10);
       exports.default = ({ name, append, lastUpdated }) => {
         const action = append ? 'Appending to ' : 'Fetch for ',
           date = lastUpdated && date_fns_1.format(new Date(lastUpdated), 'pp');
@@ -1662,8 +1665,8 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        Icon_1 = __importDefault(__webpack_require__(8)),
-        common_1 = __webpack_require__(12);
+        Icon_1 = __importDefault(__webpack_require__(10)),
+        common_1 = __webpack_require__(14);
       exports.default = ({ name, fetchEntity }) =>
         react_1.default.createElement(
           react_1.default.Fragment,
@@ -1725,7 +1728,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        Icon_1 = __webpack_require__(8);
+        Icon_1 = __webpack_require__(10);
       exports.default = ({ name, error }) =>
         React.createElement(
           'div',
@@ -1782,9 +1785,9 @@
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 }),
         (exports.fetchBaz = exports.fetchBar = exports.fetchFoo = void 0);
-      const redux_entity_1 = __webpack_require__(28),
-        domain_service_1 = __webpack_require__(216),
-        types_1 = __webpack_require__(68);
+      const redux_entity_1 = __webpack_require__(29),
+        domain_service_1 = __webpack_require__(219),
+        types_1 = __webpack_require__(71);
       (exports.fetchFoo = function fetchFoo() {
         return redux_entity_1.GetEntity(types_1.EntityType.Foo, domain_service_1.fetchMockData());
       }),
@@ -1799,8 +1802,8 @@
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 }),
         (exports.fetchMockData = exports.postFoo = exports.fetchFoo = void 0);
-      const data_access_service_1 = __webpack_require__(217),
-        util_1 = __webpack_require__(237),
+      const data_access_service_1 = __webpack_require__(220),
+        util_1 = __webpack_require__(240),
         fakeError = new Error('Fake Error!');
       (exports.fetchFoo = (id) => data_access_service_1.get('/foo/' + id)),
         (exports.postFoo = (id, data) => data_access_service_1.post('/foo/' + id, data)),
@@ -1820,7 +1823,7 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 }), (exports.post = exports.get = void 0);
-      const ajax_service_1 = __importDefault(__webpack_require__(218));
+      const ajax_service_1 = __importDefault(__webpack_require__(221));
       var HttpMethod;
       !(function (HttpMethod) {
         (HttpMethod.GET = 'GET'), (HttpMethod.POST = 'POST'), (HttpMethod.PUT = 'PUT'), (HttpMethod.DELETE = 'DELETE');
@@ -1862,8 +1865,8 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const axios_1 = __importDefault(__webpack_require__(219)),
-        config_service_1 = __importDefault(__webpack_require__(45)),
+      const axios_1 = __importDefault(__webpack_require__(222)),
+        config_service_1 = __importDefault(__webpack_require__(48)),
         instance = axios_1.default.create({ baseURL: config_service_1.default.getBaseUrl(), timeout: 4e3 });
       exports.default = { request: (options) => instance.request(options) };
     },
@@ -1896,7 +1899,7 @@
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var ReduxState_1 = __webpack_require__(240);
+      var ReduxState_1 = __webpack_require__(243);
       Object.defineProperty(exports, 'default', {
         enumerable: !0,
         get: function () {
@@ -1947,9 +1950,9 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        react_json_pretty_1 = __importDefault(__webpack_require__(241)),
-        react_redux_1 = __webpack_require__(14),
-        GenericSection_1 = __importDefault(__webpack_require__(32)),
+        react_json_pretty_1 = __importDefault(__webpack_require__(244)),
+        react_redux_1 = __webpack_require__(16),
+        GenericSection_1 = __importDefault(__webpack_require__(33)),
         themeProps = { keyStyle: 'color: #3298dc;' },
         replacer = (key, value) => (value instanceof Error ? value.toString() : value);
       exports.default = () => {
@@ -1973,5 +1976,5 @@
       __webpack_require__.r(__webpack_exports__), (__webpack_exports__.default = __webpack_require__.p + 'favicon.ico');
     },
   ],
-  [[71, 1, 2]],
+  [[74, 1, 2]],
 ]);
