@@ -2,11 +2,13 @@
 
 A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
 
+:heart: Typescript
+<br />
 :heart: Webpack 4
 <br/>
 :heart: Code splitting
 <br/>
-:heart: React Router
+:heart: React Router v5
 <br/>
 :heart: Redux 
 
@@ -43,21 +45,22 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 
 #### Build Process
  * Built with [webpack 4](https://webpack.js.org/configuration/)
- * Code splitting at the [react-router v4](https://github.com/reactjs/react-router) level
+ * Code splitting at the [react-router v5](https://github.com/reactjs/react-router) level
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling 
+ * Static typing via [Typescript](https://www.typescriptlang.org/)
 
 #### State Management
 * [redux-entity](https://github.com/mikechabot/redux-entity) for domain entity management
-* [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunks.js#L6)
+* [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/reducers/entities/actions.ts)
 * [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
 
 #### Routing
-* [react-router v4](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.jsx#L5)
+* [react-router v5](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.tsx#L12)
 
 #### HTTP
 * [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L8), [Promise-based](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) HTTP support via [Axios](https://github.com/mzabriskie/axios)
-* Utilizes a [a generic data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L48) to easily fetch data
-* Example of [implementing the data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/domain/example-domain-service.js#L17)
+* Utilizes a [a generic data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.ts#L30) to easily fetch data
+* Example of [implementing the data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/domain/domain-service.ts#L7)
 
 #### Styling
 * Supports [SCSS & SASS](http://sass-lang.com/) syntax
@@ -99,7 +102,7 @@ Use [`cross-env`](https://github.com/kentcdodds/cross-env) or a comparable libra
 
 `$ cross-env ENV_CONFIG_PATH=/path/to/config.json npm start`
 
-> **Note**: This path is made available to Webpack **only**, however the contents of the file are stamped on a global variable during the build process (`process.env.APP_CONFIG`, see [webpack.config.js](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L44)), which is then accessible via the [ConfigService](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/common/config-service.js#L8).
+> **Note**: This path is made available to Webpack **only**, however the contents of the file are stamped on a global variable during the build process (`process.env.APP_CONFIG`, see [webpack.config.js](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L46)), which is then accessible via the [ConfigService](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/common/config-service.js#L19).
 
 If your configuration is loaded successfully, you can expect to see the following indicator during startup:
 
