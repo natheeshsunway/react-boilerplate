@@ -64,7 +64,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 
 #### Styling
 * Supports [SCSS & SASS](http://sass-lang.com/) syntax
-* Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer) and [normalize.css](https://necolas.github.io/normalize.css/)
+* Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer)
 * [Bulma](https://bulma.io/documentation/overview/start/) for out-of-the-box styling
 
 #### Develop & Deploy
