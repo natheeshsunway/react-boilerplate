@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400, 700);
 .navbar--container {
   width: 100%;
 }
@@ -10285,7 +10284,6 @@ body,
 html {
   width: 100%;
   height: 100%;
-  font: 1rem Inconsolata;
 }
 #example-app {
   margin: 0;
