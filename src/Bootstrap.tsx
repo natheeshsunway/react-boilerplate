@@ -2,35 +2,16 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import configureStore from './reducers/store/configure-store';
+import store from '~reducers/store';
 
-import Root from './Root';
+import Root from '~app/Root';
 
-// Require globals
-import './scss/style.scss';
-import './assets/images/favicon.ico';
-
-const store = configureStore();
-
-const ROOT_ELEMENT = 'example-app';
+import '~app/styles/global.scss';
+import '~app/assets/favicon.ico';
 
 ReactDOM.render(
   <AppContainer>
     <Root store={store} />
   </AppContainer>,
-  document.getElementById(ROOT_ELEMENT)
+  document.getElementById('example-app')
 );
-
-// // Hot Module Replacement API
-// if (module.hot!) {
-//   module.hot.accept('./Root', () => {
-//     import('./Root').then((NextApp) => {
-//       ReactDOM.render(
-//         <AppContainer>
-//           <NextApp store={store} />
-//         </AppContainer>,
-//         document.getElementById(ROOT_ELEMENT)
-//       );
-//     });
-//   });
-// }

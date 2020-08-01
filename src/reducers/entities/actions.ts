@@ -1,15 +1,15 @@
 import { GetEntity } from 'redux-entity';
 
-import { ENTITY_KEY } from '~common/app-const';
-
 import { fetchMockData } from '~services/domain/domain-service';
+
+import { EntityType } from '~reducers/entities/types';
 
 /**
  * Thunk action that simulates a delayed API call
  * @returns {Function}  thunk
  */
 export function fetchFoo() {
-  return GetEntity(ENTITY_KEY.FOO, fetchMockData());
+  return GetEntity(EntityType.Foo, fetchMockData());
 }
 
 /**
@@ -17,7 +17,7 @@ export function fetchFoo() {
  * @returns {Function}  thunk
  */
 export function fetchBar() {
-  return GetEntity(ENTITY_KEY.BAR, fetchMockData(), { append: true });
+  return GetEntity(EntityType.Bar, fetchMockData(), { append: true });
 }
 
 /**
@@ -25,5 +25,5 @@ export function fetchBar() {
  * @returns {Function}  thunk
  */
 export function fetchBaz() {
-  return GetEntity(ENTITY_KEY.BAZ, fetchMockData(true));
+  return GetEntity(EntityType.Baz, fetchMockData(true));
 }

@@ -7,16 +7,12 @@ import ConfigService from '~services/common/config-service';
 
 import App from '~components/App';
 
-export default function Root({ store }: { store: any }) {
-  return (
-    <Provider store={store}>
-      <BrowserRouter basename={ConfigService.getPublicBasename()}>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  );
-}
+const Root = ({ store }: { store: any }) => (
+  <Provider store={store}>
+    <BrowserRouter basename={ConfigService.getPublicBasename()}>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
 
-Root.propTypes = {
-  store: PropTypes.object,
-};
+export default Root;

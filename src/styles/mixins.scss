@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+
+$family-serif: Inconsolata, Consolas, monospace;
+$link: hsl(204, 86%, 53%);
+
+@import '~bulma/bulma';
+
+.navbar-item img {
+  max-height: none;
+}
+
+.notification a:not(.button) {
+  text-decoration: none;
+}
+
+$font-stack: 1rem Inconsolata;

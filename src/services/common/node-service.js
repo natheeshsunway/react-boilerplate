@@ -1,7 +1,6 @@
 'use strict';
 
-let svc;
-module.exports = svc = {
+module.exports = {
   getNodeEnv: function () {
     return process.env;
   },
@@ -10,18 +9,18 @@ module.exports = svc = {
     return process.env[key];
   },
   getNodeEnvMode: function () {
-    return svc.getNodeEnvByKey('NODE_ENV') || 'test';
+    return this.getNodeEnvByKey('NODE_ENV') || 'test';
   },
   isProduction: function () {
-    return svc.getNodeEnvMode() === 'production';
+    return this.getNodeEnvMode() === 'production';
   },
   isDevelopment: function () {
-    return svc.getNodeEnvMode() === 'development';
+    return this.getNodeEnvMode() === 'development';
   },
   isGhPages: function () {
-    return svc.getNodeEnvMode() === 'gh-pages';
+    return this.getNodeEnvMode() === 'gh-pages';
   },
   isTest: function () {
-    return !svc.getNodeEnvMode() || svc.getNodeEnvMode() === 'test';
+    return !this.getNodeEnvMode() || this.getNodeEnvMode() === 'test';
   },
 };

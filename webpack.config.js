@@ -2,15 +2,18 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const CleanPlugin = require('./utils/clean-plugin');
+/**
+ * react-boilerplate scripts
+ */
 const NodeUtils = require('./src/services/common/node-service');
-
+const buildInfo = require('./scripts/buildInfo');
 const appConfig = require('./config/config');
+
+buildInfo();
 
 const APP_DIR = path.join(__dirname, 'src');
 const NODE_MODULES = path.join(__dirname, 'node_modules');
@@ -23,28 +26,23 @@ const isDevelopment = NodeUtils.isDevelopment();
  */
 function getPlugins() {
   return [
-    // Clear the output dir before builds
-    new CleanPlugin({
-      files: ['docs/*'],
-    }),
-
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
       chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
 
-    // Ignore moment locales
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-
-    // Inject bundles and CSS directly into the HTML template
+    /**
+     * Inject bundles and CSS directly into the HTML template
+     */
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       inject: 'body',
     }),
 
-    // Pass NODE_ENV and APP_CONFIG to application
+    /**
+     * Pass NODE_ENV and APP_CONFIG to the application so that
+     * "ConfigService" and "NodeService" can be used within TS/TSX files.
+     */
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -54,6 +52,9 @@ function getPlugins() {
   ];
 }
 
+/**
+ * Set up code splitting and chunking
+ */
 function getCodeSplittingConfig() {
   return {
     splitChunks: {
@@ -87,35 +88,7 @@ function getCodeSplittingConfig() {
  * @returns {*[]}
  */
 function getParserRules() {
-  const devSassLoaders = ['style-loader', 'css-loader', 'sass-loader'];
-
-  // // Extract CSS and autoprefix
-  // const prodSassLoaders = [
-  //   MiniCssExtractPlugin.loader, 'css-loader',
-  //   {
-  //     loader: 'postcss-loader',
-  //     options: {
-  //       plugins: () => [
-  //         autoprefixer({
-  //           browsers: ['last 2 version']
-  //         })
-  //       ]
-  //     }
-  //   }, 'sass-loader'];
-
   return [
-    {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      include: APP_DIR,
-      exclude: NODE_MODULES,
-    },
-    {
-      test: /\.(js|jsx)$/,
-      loaders: 'babel-loader',
-      include: APP_DIR,
-      exclude: NODE_MODULES,
-    },
     {
       test: /\.(sa|sc|c)ss$/,
       use: [
@@ -129,6 +102,18 @@ function getParserRules() {
         'postcss-loader',
         'sass-loader',
       ],
+      include: APP_DIR,
+      exclude: NODE_MODULES,
+    },
+    {
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      include: APP_DIR,
+      exclude: NODE_MODULES,
+    },
+    {
+      test: /\.(js|jsx)$/,
+      loaders: 'babel-loader',
       include: APP_DIR,
       exclude: NODE_MODULES,
     },
@@ -152,37 +137,50 @@ function getParserRules() {
   ];
 }
 
-const webpackConfig = {};
-
-// Configure the output directory and bundle name
-webpackConfig.output = {
-  path: path.join(__dirname, 'docs'),
-  filename: '[name].[hash].js',
-};
-
-// Allow webpack to automatically resolve import extensions
-webpackConfig.resolve = {
-  extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'scss'],
-  alias: {
-    '~common': path.resolve(APP_DIR, 'common/'),
-    '~components': path.resolve(APP_DIR, 'components/'),
-    '~reducers': path.resolve(APP_DIR, 'reducers/'),
-    '~services': path.resolve(APP_DIR, 'services/'),
+const webpackConfig = {
+  /**
+   * Configure the output directory and bundle name
+   */
+  output: {
+    path: path.join(__dirname, 'docs'),
+    filename: '[name].[hash].js',
+  },
+  resolve: {
+    /**
+     * Allow webpack to automatically resolve import extensions
+     */
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'scss'],
+    /**
+     * Define aliases to be used within import statements.
+     * Be sure to update "tsconfig.json" if you add/update/delete aliases.
+     */
+    alias: {
+      '~app': path.resolve(APP_DIR),
+      '~assets': path.resolve(APP_DIR, 'assets/'),
+      '~components': path.resolve(APP_DIR, 'components/'),
+      '~reducers': path.resolve(APP_DIR, 'reducers/'),
+      '~services': path.resolve(APP_DIR, 'services/'),
+    },
+  },
+  /**
+   * Set up code splitting and chunking
+   */
+  optimization: getCodeSplittingConfig(),
+  /**
+   * Set up webpack plugins
+   */
+  plugins: getPlugins(),
+  /**
+   * Set up module parsing rules
+   */
+  module: {
+    rules: getParserRules(),
   },
 };
 
-// Set up code splitting
-webpackConfig.optimization = getCodeSplittingConfig();
-
-// Set webpack plugins
-webpackConfig.plugins = getPlugins();
-
-// Set up file parsing rules
-webpackConfig.module = {
-  rules: getParserRules(),
-};
-
-// Add additional configurations based on NODE_ENV
+/**
+ * Add additional configurations based on NODE_ENV
+ */
 if (!NodeUtils.isDevelopment()) {
   webpackConfig.entry = './src/Bootstrap';
   webpackConfig.mode = 'production';
