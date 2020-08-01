@@ -66,18 +66,11 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 * Supports [SCSS & SASS](http://sass-lang.com/) syntax
 * Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer) and [normalize.css](https://necolas.github.io/normalize.css/)
 * [Bulma](https://bulma.io/documentation/overview/start/) for out-of-the-box styling
-* [glamorous](https://glamorous.rocks) for CSS-in-JS styling
 
 #### Develop & Deploy
 * Environmental configurations for both webpack and redux
   * **Dev**: [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/). `redux-logger` enabled
   * **Prod**: [Express](http://expressjs.com/) server with `redux-logger` disabled
-
-#### Testing
-* Tested with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
-* Coverage support via [nyc](https://istanbul.js.org)
-* [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
-* [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
 ----
 
