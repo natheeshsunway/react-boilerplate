@@ -1,4 +1,4 @@
-/*! For license information please see vendor.1e58530898d67b03e755.js.LICENSE.txt */
+/*! For license information please see vendor.4887ebfca24d0fc88bfb.js.LICENSE.txt */
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [2],
   [

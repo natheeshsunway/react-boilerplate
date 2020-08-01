@@ -10284,6 +10284,7 @@ body,
 html {
   width: 100%;
   height: 100%;
+  font: 1rem Inconsolata;
 }
 #example-app {
   margin: 0;
