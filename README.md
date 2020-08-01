@@ -81,7 +81,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 3. Launch environment:
    *  **Production**: `$ npm start`
    *  **Development**: `$ npm run dev`   
-   > Available at http://localhost:3060
+   * Available at http://localhost:3060  
    > Update port via [config.default.json](https://github.com/mikechabot/react-boilerplate/blob/master/config/config.default.json#L3), or override via [Custom Configuration](#custom-config)
 4. Build assets for production:
    * `$ npm run build:prod`
