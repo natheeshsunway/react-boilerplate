@@ -13,7 +13,7 @@ import styles from '~components/styles/App.scss';
 const cx = classnames.bind(styles);
 
 const App = () => (
-  <section>
+  <section className={cx('react-boilerplate')}>
     <NavBar />
     <section className={`section ${cx('section--body')}`}>
       <div className="container">

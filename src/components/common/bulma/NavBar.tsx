@@ -13,7 +13,7 @@ const cx = classname.bind(styles);
 
 const NavBar = () => {
   return (
-    <nav className={`navbar is-dark`} role="navigation" aria-label="main navigation">
+    <nav className={`navbar is-dark ${cx('nav-bar--container')}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a href={URL.REPOSITORY} className="navbar-item is-size-3">
           <img src={logo} height={64} width={64} />

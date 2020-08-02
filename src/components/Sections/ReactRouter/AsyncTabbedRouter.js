@@ -1,13 +1,29 @@
 import React from 'react';
+import pMinDelay from 'p-min-delay';
 import loadable from '@loadable/component';
+import classNames from 'classnames/bind';
 import { Route, useHistory, useLocation } from 'react-router-dom';
 import { Tab, Tabs } from 'react-tabify';
 
-import { CogIcon } from '~components/common/Icon';
+import ChunkLoadingIcon from '~components/Sections/ReactRouter/ChunkLoadingIcon';
 
-const AsyncIncrement = loadable(() => import('~components/Sections/ReactRouter/Routes/IncrementRoute'));
-const AsyncDecrement = loadable(() => import('~components/Sections/ReactRouter/Routes/DecrementRoute'));
-const AsyncReset = loadable(() => import('~components/Sections/ReactRouter/Routes/ResetRoute'));
+const DELAY = 500;
+const options = {
+  fallback: <ChunkLoadingIcon />,
+};
+
+const AsyncIncrement = loadable(
+  () => pMinDelay(import('~components/Sections/ReactRouter/Routes/IncrementRoute'), DELAY),
+  options
+);
+const AsyncDecrement = loadable(
+  () => pMinDelay(import('~components/Sections/ReactRouter/Routes/DecrementRoute'), DELAY),
+  options
+);
+const AsyncReset = loadable(
+  () => pMinDelay(import('~components/Sections/ReactRouter/Routes/ResetRoute'), DELAY),
+  options
+);
 
 const AsyncTabbedRouter = () => {
   const location = useLocation();

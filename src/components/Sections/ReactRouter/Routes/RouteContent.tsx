@@ -27,7 +27,7 @@ const RouteContent: React.FunctionComponent<RouteContentProps> = ({ path, label,
         <Icon icon="angle-right" />
         &nbsp;Connected to the Redux store at the&nbsp;<code>{path || '/'}</code>&nbsp;route
       </div>
-      <div className={cx('route-content--counter')}>
+      <div className={`${cx('route-content--counter')} m-t-xs`}>
         <Icon icon="angle-right" />
         &nbsp;<code>counter</code>: <code>{counter}</code>
       </div>
