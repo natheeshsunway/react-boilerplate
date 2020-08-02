@@ -5,7 +5,7 @@
     "target": "es6",
     "moduleResolution": "Node",
     "module": "commonjs",
-    "lib": ["es6", "dom"],
+    "lib": ["es6", "DOM"],
     "jsx": "react",
     "allowJs": true,
     "strict": true,

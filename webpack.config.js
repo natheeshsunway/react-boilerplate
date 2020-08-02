@@ -106,14 +106,14 @@ function getParserRules() {
       exclude: NODE_MODULES,
     },
     {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
+      test: /\.(js|jsx)$/,
+      loaders: 'babel-loader',
       include: APP_DIR,
       exclude: NODE_MODULES,
     },
     {
-      test: /\.(js|jsx)$/,
-      loaders: 'babel-loader',
+      test: /\.tsx?$/,
+      use: 'ts-loader',
       include: APP_DIR,
       exclude: NODE_MODULES,
     },
@@ -149,7 +149,7 @@ const webpackConfig = {
     /**
      * Allow webpack to automatically resolve import extensions
      */
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'scss'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', 'scss'],
     /**
      * Define aliases to be used within import statements.
      * Be sure to update "tsconfig.json" if you add/update/delete aliases.

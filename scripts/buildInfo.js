@@ -1,4 +1,6 @@
 const boxen = require('boxen');
+const figlet = require('figlet');
+const chalk = require('chalk');
 
 const packageJson = require('../package.json');
 const NodeUtils = require('../src/services/common/node-service');
@@ -7,19 +9,28 @@ const NodeUtils = require('../src/services/common/node-service');
  * Boxen options as defined by https://www.npmjs.com/package/boxen
  * @type {{padding: {top: number, left: number, bottom: number, right: number}}}
  */
-const options = {
+const boxenOptions = {
   padding: {
-    left: 2,
-    right: 2,
+    left: 13,
+    right: 13,
     top: 1,
     bottom: 1,
   },
 };
 
-module.exports = function () {
-  const details = ` > Building for *${NodeUtils.getNodeEnvMode()}*`;
-  const author = ` > By ${packageJson.author}`;
+/**
+ * Figlet options as defined by https://github.com/patorjk/figlet.js
+ * @type {{horizontalLayout: string, font: string}}
+ */
+const figletOptions = {
+  font: 'Small Slant',
+  horizontalLayout: 'controlled smushing',
+};
 
-  const title = `${packageJson.name} (v${packageJson.version})`;
-  console.log(boxen(`${title}\n\n${author}\n${details}`, options));
+const { name, version, author, license } = packageJson;
+const details = chalk.cyan(`${author} | Version ${version} | License ${license} `);
+
+module.exports = function () {
+  console.log(chalk.cyan(figlet.textSync(name, figletOptions)));
+  console.log(boxen(details, boxenOptions));
 };
