@@ -2,6 +2,8 @@
 
 A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
 
+:heart: Async chunk loading
+<br />
 :heart: Typescript
 <br />
 :heart: Webpack 4
@@ -11,8 +13,6 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 :heart: Redux v4
 <br/>
 :heart: Code splitting
-<br/>
-:heart: Async chunk loading
 <br/>
 
 <div align="center"> 
