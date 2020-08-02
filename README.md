@@ -48,7 +48,7 @@ http://mikechabot.github.io/react-boilerplate
 
 - [Typescript](https://www.typescriptlang.org/) support
 - Bundled with [webpack 4](https://webpack.js.org/configuration/)
-- Async chunk loading at the [react-router v5](https://github.com/reactjs/react-router) level via [@loadable/react](https://loadable-components.com/)
+- Implements async chunk loading via [@loadable/react](https://loadable-components.com/)
 - Supports ES6 via [Babel](https://babeljs.io/) transpiling
 
 #### State Management
@@ -60,6 +60,7 @@ http://mikechabot.github.io/react-boilerplate
 #### Routing
 
 - [react-router v5](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.tsx#L12)
+- [Async chunk loading](https://github.com/mikechabot/react-boilerplate/blob/master/src/components/Sections/ReactRouter/AsyncTabbedRouter.js#L15) at the `react-router` level 
 
 #### HTTP
 
