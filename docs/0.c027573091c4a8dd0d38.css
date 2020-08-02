@@ -1,7 +1,3 @@
-.navbar--container {
-  width: 100%;
-}
-
 .github-button--container {
   margin: 5px;
 }
@@ -32,12 +28,8 @@
   flex-direction: column;
 }
 
-.app-container {
-  width: 100%;
+.section--body {
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
 }
 
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
@@ -10279,6 +10271,9 @@ a.has-text-danger-dark:focus {
 }
 .notification a:not(.button) {
   text-decoration: none;
+}
+.navbar.is-dark .navbar-brand > a.navbar-item:hover {
+  background: unset;
 }
 body,
 html {

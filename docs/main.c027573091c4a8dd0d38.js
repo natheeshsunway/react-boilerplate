@@ -9,8 +9,6 @@
     ,
     ,
     ,
-    ,
-    ,
     function (module, exports, __webpack_require__) {
       'use strict';
       var __importDefault =
@@ -19,12 +17,13 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 }),
-        (exports.CheckIcon = exports.ExclamationIcon = void 0);
+        (exports.CogIcon = exports.CheckIcon = exports.ExclamationIcon = void 0);
       const react_1 = __importDefault(__webpack_require__(0));
       (exports.ExclamationIcon = () =>
         react_1.default.createElement(Icon, { icon: 'exclamation-triangle', className: 'has-text-danger' })),
         (exports.CheckIcon = () =>
-          react_1.default.createElement(Icon, { icon: 'check', className: 'has-text-success' }));
+          react_1.default.createElement(Icon, { icon: 'check', className: 'has-text-success' })),
+        (exports.CogIcon = () => react_1.default.createElement(Icon, { icon: 'cog fa-spin' }));
       const Icon = ({ icon, prefix, className, size = 'fa-1x' }) => {
         const iconPrefix = prefix || 'fa';
         return react_1.default.createElement(
@@ -38,10 +37,23 @@
     ,
     ,
     ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      var Icon_1 = __webpack_require__(10);
+      var Icon_1 = __webpack_require__(8);
       Object.defineProperty(exports, 'Icon', {
         enumerable: !0,
         get: function () {
@@ -63,17 +75,6 @@
         },
       });
     },
-    ,
-    ,
-    ,
-    ,
-    ,
-    ,
-    ,
-    ,
-    ,
-    ,
-    ,
     function (module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 }),
@@ -137,7 +138,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        Icon_1 = __importDefault(__webpack_require__(10));
+        Icon_1 = __importDefault(__webpack_require__(8));
       exports.default = ({ title, subtitle, icon, children }) =>
         React.createElement(
           React.Fragment,
@@ -173,9 +174,9 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
-        react_redux_1 = __webpack_require__(16),
-        Icon_1 = __importDefault(__webpack_require__(10)),
+        bind_1 = __importDefault(__webpack_require__(10)),
+        react_redux_1 = __webpack_require__(15),
+        Icon_1 = __importDefault(__webpack_require__(8)),
         RouteContent_scss_1 = __importDefault(__webpack_require__(188)),
         cx = bind_1.default.bind(RouteContent_scss_1.default);
       exports.default = ({ path, label, action, icon }) => {
@@ -278,7 +279,7 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const redux_1 = __webpack_require__(17),
+      const redux_1 = __webpack_require__(16),
         reducer_1 = __importDefault(__webpack_require__(85)),
         reducer_2 = __importDefault(__webpack_require__(46)),
         rootReducer = redux_1.combineReducers({ counter: reducer_2.default, entities: reducer_1.default });
@@ -455,7 +456,7 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const redux_1 = __webpack_require__(17),
+      const redux_1 = __webpack_require__(16),
         redux_thunk_1 = __importDefault(__webpack_require__(44)),
         index_1 = __importDefault(__webpack_require__(45)),
         redux_logger_1 = __importDefault(__webpack_require__(47));
@@ -491,7 +492,7 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const redux_1 = __webpack_require__(17),
+      const redux_1 = __webpack_require__(16),
         redux_thunk_1 = __importDefault(__webpack_require__(44)),
         redux_logger_1 = __importDefault(__webpack_require__(47)),
         index_1 = __importDefault(__webpack_require__(45));
@@ -546,7 +547,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        react_redux_1 = __webpack_require__(16),
+        react_redux_1 = __webpack_require__(15),
         react_router_dom_1 = __webpack_require__(72),
         config_service_1 = __importDefault(__webpack_require__(48)),
         App_1 = __importDefault(__webpack_require__(132));
@@ -610,7 +611,7 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
+        bind_1 = __importDefault(__webpack_require__(10)),
         Navbar_1 = __importDefault(__webpack_require__(133)),
         Footer_1 = __importDefault(__webpack_require__(138)),
         ReactRouter_1 = __importDefault(__webpack_require__(146)),
@@ -620,47 +621,36 @@
         cx = bind_1.default.bind(App_scss_1.default);
       exports.default = () =>
         react_1.default.createElement(
-          'div',
-          { className: cx('app-container') },
-          react_1.default.createElement(
-            'div',
-            null,
-            react_1.default.createElement(Navbar_1.default, {
-              url: 'http://www.github.com/mikechabot/react-boilerplate',
-              label: 'react-boilerplate',
-            })
-          ),
+          'section',
+          null,
+          react_1.default.createElement(Navbar_1.default, null),
           react_1.default.createElement(
             'section',
-            { className: 'hero' },
+            { className: 'section ' + cx('section--body') },
             react_1.default.createElement(
               'div',
-              { className: 'hero-body' },
+              { className: 'container' },
               react_1.default.createElement(
                 'div',
-                { className: 'container' },
+                { className: 'columns' },
                 react_1.default.createElement(
                   'div',
-                  { className: 'columns' },
-                  react_1.default.createElement(
-                    'div',
-                    { className: 'column' },
-                    react_1.default.createElement(ReactRouter_1.default, null)
-                  )
+                  { className: 'column' },
+                  react_1.default.createElement(ReactRouter_1.default, null)
+                )
+              ),
+              react_1.default.createElement(
+                'div',
+                { className: 'columns' },
+                react_1.default.createElement(
+                  'div',
+                  { className: 'column' },
+                  react_1.default.createElement(ReduxEntity_1.default, null)
                 ),
                 react_1.default.createElement(
                   'div',
-                  { className: 'columns' },
-                  react_1.default.createElement(
-                    'div',
-                    { className: 'column' },
-                    react_1.default.createElement(ReduxEntity_1.default, null)
-                  ),
-                  react_1.default.createElement(
-                    'div',
-                    { className: 'column' },
-                    react_1.default.createElement(ReduxState_1.default, null)
-                  )
+                  { className: 'column' },
+                  react_1.default.createElement(ReduxState_1.default, null)
                 )
               )
             )
@@ -677,28 +667,24 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
-        common_1 = __webpack_require__(14),
+        bind_1 = __importDefault(__webpack_require__(10)),
+        common_1 = __webpack_require__(25),
         logo_png_1 = __importDefault(__webpack_require__(136)),
         const_1 = __webpack_require__(26),
-        NavBar_scss_1 = __importDefault(__webpack_require__(137)),
-        cx = bind_1.default.bind(NavBar_scss_1.default);
-      exports.default = ({ url, label }) =>
+        NavBar_scss_1 = __importDefault(__webpack_require__(137));
+      bind_1.default.bind(NavBar_scss_1.default);
+      exports.default = () =>
         react_1.default.createElement(
           'nav',
-          {
-            className: 'navbar is-dark ' + cx('nav-bar--container'),
-            role: 'navigation',
-            'aria-label': 'main navigation',
-          },
+          { className: 'navbar is-dark', role: 'navigation', 'aria-label': 'main navigation' },
           react_1.default.createElement(
             'div',
             { className: 'navbar-brand' },
             react_1.default.createElement(
               'a',
-              { href: url, className: 'navbar-item is-size-3' },
+              { href: const_1.URL.REPOSITORY, className: 'navbar-item is-size-3' },
               react_1.default.createElement('img', { src: logo_png_1.default, height: 64, width: 64 }),
-              react_1.default.createElement('span', null, label)
+              react_1.default.createElement('span', null, 'react-boilerplate')
             )
           ),
           react_1.default.createElement(
@@ -742,7 +728,7 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        Icon_1 = __importDefault(__webpack_require__(10));
+        Icon_1 = __importDefault(__webpack_require__(8));
       exports.default = ({ icon, disabled, loading, onClick, children, theme = '' }) =>
         react_1.default.createElement(
           'p',
@@ -861,8 +847,8 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
-        common_1 = __webpack_require__(14),
+        bind_1 = __importDefault(__webpack_require__(10)),
+        common_1 = __webpack_require__(25),
         GithubButtons_1 = __importDefault(__webpack_require__(140)),
         const_1 = __webpack_require__(26),
         Footer_scss_1 = __importDefault(__webpack_require__(145)),
@@ -958,7 +944,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
+        bind_1 = __importDefault(__webpack_require__(10)),
         GithubButton_1 = __importDefault(__webpack_require__(142)),
         GithubButtons_scss_1 = __importDefault(__webpack_require__(144)),
         cx = bind_1.default.bind(GithubButtons_scss_1.default);
@@ -1029,7 +1015,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
+        bind_1 = __importDefault(__webpack_require__(10)),
         GithubButton_scss_1 = __importDefault(__webpack_require__(143)),
         cx = bind_1.default.bind(GithubButton_scss_1.default);
       exports.default = ({ label, icon, href, ariaLabel }) =>
@@ -1172,24 +1158,25 @@
       const react_1 = __importDefault(__webpack_require__(0)),
         react_router_dom_1 = __webpack_require__(72),
         react_tabify_1 = __webpack_require__(149),
-        common_1 = __webpack_require__(14),
+        Icon_1 = __webpack_require__(8),
         react_loadable_1 = __importDefault(__webpack_require__(186)),
         AsyncIncrement = react_loadable_1.default({
           loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(187))),
-          loading: () => react_1.default.createElement(common_1.Icon, { icon: 'cog fa-spin' }),
+          loading: () => react_1.default.createElement(Icon_1.CogIcon, null),
+          delay: 300,
         }),
         AsyncDecrement = react_loadable_1.default({
           loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(189))),
-          loading: () => react_1.default.createElement(common_1.Icon, { icon: 'cog fa-spin' }),
+          loading: () => react_1.default.createElement(Icon_1.CogIcon, null),
+          delay: 300,
         }),
         AsyncReset = react_loadable_1.default({
           loader: () => Promise.resolve().then(() => __importStar(__webpack_require__(190))),
-          loading: () => react_1.default.createElement(common_1.Icon, { icon: 'cog fa-spin' }),
+          loading: () => react_1.default.createElement(Icon_1.CogIcon, null),
+          delay: 300,
         });
-      exports.default = () => {
-        const location = react_router_dom_1.useLocation(),
-          history = react_router_dom_1.useHistory();
-        return react_1.default.createElement(
+      exports.default = react_router_dom_1.withRouter(({ location, history }) =>
+        react_1.default.createElement(
           'div',
           { className: 'notification m-t-sm' },
           react_1.default.createElement(
@@ -1207,16 +1194,24 @@
             react_1.default.createElement(
               react_tabify_1.Tab,
               { eventKey: '/decrement', label: 'Decrement' },
-              react_1.default.createElement(react_router_dom_1.Route, { path: '/decrement', component: AsyncDecrement })
+              react_1.default.createElement(react_router_dom_1.Route, {
+                exact: !0,
+                path: '/decrement',
+                component: AsyncDecrement,
+              })
             ),
             react_1.default.createElement(
               react_tabify_1.Tab,
               { eventKey: '/reset', label: 'Reset' },
-              react_1.default.createElement(react_router_dom_1.Route, { path: '/reset', component: AsyncReset })
+              react_1.default.createElement(react_router_dom_1.Route, {
+                exact: !0,
+                path: '/reset',
+                component: AsyncReset,
+              })
             )
           )
-        );
-      };
+        )
+      );
     },
     ,
     ,
@@ -1397,8 +1392,8 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(9)),
-        react_redux_1 = __webpack_require__(16),
+        bind_1 = __importDefault(__webpack_require__(10)),
+        react_redux_1 = __webpack_require__(15),
         Entity_1 = __importDefault(__webpack_require__(194)),
         actions_1 = __webpack_require__(218),
         types_1 = __webpack_require__(71),
@@ -1475,9 +1470,9 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importStar(__webpack_require__(0)),
-        react_redux_1 = __webpack_require__(16),
+        react_redux_1 = __webpack_require__(15),
         isEmpty_1 = __importDefault(__webpack_require__(195)),
-        common_1 = __webpack_require__(14),
+        common_1 = __webpack_require__(25),
         EntityData_1 = __importDefault(__webpack_require__(213)),
         EntityReset_1 = __importDefault(__webpack_require__(214)),
         EntityMissing_1 = __importDefault(__webpack_require__(215)),
@@ -1592,7 +1587,7 @@
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
         date_fns_1 = __webpack_require__(248),
-        Icon_1 = __webpack_require__(10);
+        Icon_1 = __webpack_require__(8);
       exports.default = ({ name, append, lastUpdated }) => {
         const action = append ? 'Appending to ' : 'Fetch for ',
           date = lastUpdated && date_fns_1.format(new Date(lastUpdated), 'pp');
@@ -1665,8 +1660,8 @@
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const react_1 = __importDefault(__webpack_require__(0)),
-        Icon_1 = __importDefault(__webpack_require__(10)),
-        common_1 = __webpack_require__(14);
+        Icon_1 = __importDefault(__webpack_require__(8)),
+        common_1 = __webpack_require__(25);
       exports.default = ({ name, fetchEntity }) =>
         react_1.default.createElement(
           react_1.default.Fragment,
@@ -1728,7 +1723,7 @@
           };
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
-        Icon_1 = __webpack_require__(10);
+        Icon_1 = __webpack_require__(8);
       exports.default = ({ name, error }) =>
         React.createElement(
           'div',
@@ -1951,7 +1946,7 @@
       Object.defineProperty(exports, '__esModule', { value: !0 });
       const React = __importStar(__webpack_require__(0)),
         react_json_pretty_1 = __importDefault(__webpack_require__(244)),
-        react_redux_1 = __webpack_require__(16),
+        react_redux_1 = __webpack_require__(15),
         GenericSection_1 = __importDefault(__webpack_require__(33)),
         themeProps = { keyStyle: 'color: #3298dc;' },
         replacer = (key, value) => (value instanceof Error ? value.toString() : value);

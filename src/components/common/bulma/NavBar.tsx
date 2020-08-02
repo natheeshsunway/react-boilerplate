@@ -11,18 +11,13 @@ import styles from '~components/common/bulma/styles/NavBar.scss';
 
 const cx = classname.bind(styles);
 
-interface NavBarProps {
-  url: string;
-  label: string;
-}
-
-const NavBar: React.FunctionComponent<NavBarProps> = ({ url, label }: NavBarProps) => {
+const NavBar = () => {
   return (
-    <nav className={`navbar is-dark ${cx('nav-bar--container')}`} role="navigation" aria-label="main navigation">
+    <nav className={`navbar is-dark`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a href={url} className="navbar-item is-size-3">
+        <a href={URL.REPOSITORY} className="navbar-item is-size-3">
           <img src={logo} height={64} width={64} />
-          <span>{label}</span>
+          <span>react-boilerplate</span>
         </a>
       </div>
       <div className="navbar-end">

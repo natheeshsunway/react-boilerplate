@@ -12,6 +12,10 @@ const presets = [
   ['@babel/react'],
 ];
 
-const plugins = ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties'];
+const plugins = [
+  '@babel/plugin-syntax-dynamic-import',
+  '@babel/plugin-proposal-class-properties',
+  'react-loadable/babel',
+];
 
 module.exports = { presets, plugins };

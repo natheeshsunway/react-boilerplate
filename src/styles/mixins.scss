@@ -14,4 +14,8 @@ $link: hsl(204, 86%, 53%);
   text-decoration: none;
 }
 
+.navbar.is-dark .navbar-brand > a.navbar-item:hover {
+  background: unset;
+}
+
 $font-stack: 1rem Inconsolata;

@@ -4,33 +4,36 @@ import { withRouter, Route, useHistory, useLocation } from 'react-router-dom';
 // @ts-ignore
 import { Tab, Tabs } from 'react-tabify';
 
-import { Icon } from '~components/common';
+import { CogIcon } from '~components/common/Icon';
 import Loadable from 'react-loadable';
 
 const AsyncIncrement = Loadable({
   loader: () => import('~components/Sections/ReactRouter/Routes/IncrementRoute'),
   loading() {
-    return <Icon icon="cog fa-spin" />;
+    return <CogIcon />;
   },
+  delay: 300,
 });
 
 const AsyncDecrement = Loadable({
   loader: () => import('~components/Sections/ReactRouter/Routes/DecrementRoute'),
   loading() {
-    return <Icon icon="cog fa-spin" />;
+    return <CogIcon />;
   },
+  delay: 300,
 });
 
 const AsyncReset = Loadable({
   loader: () => import('~components/Sections/ReactRouter/Routes/ResetRoute'),
   loading() {
-    return <Icon icon="cog fa-spin" />;
+    return <CogIcon />;
   },
+  delay: 300,
 });
 
-const AsyncTabbedRouter = () => {
-  const location = useLocation();
-  const history = useHistory();
+const AsyncTabbedRouter = ({ location, history }: { location: any; history: any }) => {
+  // const location = useLocation();
+  // const history = useHistory();
 
   return (
     <div className="notification m-t-sm">
@@ -43,14 +46,14 @@ const AsyncTabbedRouter = () => {
           <Route exact path="/" component={AsyncIncrement} />
         </Tab>
         <Tab eventKey="/decrement" label="Decrement">
-          <Route path="/decrement" component={AsyncDecrement} />
+          <Route exact path="/decrement" component={AsyncDecrement} />
         </Tab>
         <Tab eventKey="/reset" label="Reset">
-          <Route path="/reset" component={AsyncReset} />
+          <Route exact path="/reset" component={AsyncReset} />
         </Tab>
       </Tabs>
     </div>
   );
 };
 
-export default AsyncTabbedRouter;
+export default withRouter(AsyncTabbedRouter);
