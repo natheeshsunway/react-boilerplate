@@ -6,13 +6,15 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 <br />
 :heart: Typescript
 <br />
-:heart: Webpack 4
+:heart: Webpack 5
 <br/>
 :heart: React Router v5
 <br />
 :heart: Redux v4
 <br/>
 :heart: Code splitting
+<br/>
+:heart: React 17
 <br/>
 
 <div align="center"> 
@@ -47,7 +49,7 @@ http://mikechabot.github.io/react-boilerplate
 #### Build Process
 
 - [Typescript](https://www.typescriptlang.org/) support
-- Bundled with [webpack 4](https://webpack.js.org/configuration/)
+- Bundled with [webpack 5](https://webpack.js.org/configuration/)
 - Implements async chunk loading via [@loadable/react](https://loadable-components.com/)
 - Supports ES6 via [Babel](https://babeljs.io/) transpiling
 
@@ -77,7 +79,7 @@ http://mikechabot.github.io/react-boilerplate
 #### Develop & Deploy
 
 - Environmental configurations for both webpack and redux
-  - **Dev**: [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/). `redux-logger` enabled
+  - **Dev**: [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) with [react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin). `redux-logger` enabled
   - **Prod**: [Express](http://expressjs.com/) server with `redux-logger` disabled
 
 ---
