@@ -60,7 +60,7 @@ http://mikechabot.github.io/react-boilerplate
 #### Routing
 
 - [react-router v5](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.tsx#L12)
-- [Async chunk loading](https://github.com/mikechabot/react-boilerplate/blob/master/src/components/Sections/ReactRouter/AsyncTabbedRouter.js#L15) at the `react-router` level 
+- [Async chunk loading](https://github.com/mikechabot/react-boilerplate/blob/master/src/components/Sections/ReactRouter/AsyncTabbedRouter.js#L15) at the `react-router` level
 
 #### HTTP
 
@@ -93,8 +93,6 @@ http://mikechabot.github.io/react-boilerplate
      > Update port via [config.default.json](https://github.com/mikechabot/react-boilerplate/blob/master/config/config.default.json#L3), or override via [Custom Configuration](#custom-config)
 4. Build assets for production:
    - `$ npm run build:prod`
-5. Execute tests:
-   - `$ npm test`
 
 ---
 

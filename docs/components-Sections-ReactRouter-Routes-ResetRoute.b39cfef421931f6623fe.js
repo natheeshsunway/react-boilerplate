@@ -1,7 +1,11 @@
-(window.webpackJsonp = window.webpackJsonp || []).push([
-  [0],
+(self.webpackChunkreact_boilerplate = self.webpackChunkreact_boilerplate || []).push([
+  [956],
   {
-    253: function (module, exports, __webpack_require__) {
+    3843: function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      'use strict';
+      __webpack_require__.r(__webpack_exports__);
+    },
+    9021: function (__unused_webpack_module, exports, __webpack_require__) {
       'use strict';
       var __importDefault =
         (this && this.__importDefault) ||
@@ -9,11 +13,30 @@
           return mod && mod.__esModule ? mod : { default: mod };
         };
       Object.defineProperty(exports, '__esModule', { value: !0 });
-      const react_1 = __importDefault(__webpack_require__(0)),
-        bind_1 = __importDefault(__webpack_require__(11)),
-        react_redux_1 = __webpack_require__(21),
-        Icon_1 = __importDefault(__webpack_require__(13)),
-        RouteContent_scss_1 = __importDefault(__webpack_require__(254)),
+      const react_1 = __importDefault(__webpack_require__(7294)),
+        RouteContent_1 = __importDefault(__webpack_require__(3672)),
+        actions_1 = __webpack_require__(750);
+      exports.default = () =>
+        react_1.default.createElement(RouteContent_1.default, {
+          icon: 'history',
+          path: '/reset',
+          label: 'Reset',
+          action: actions_1.resetAction,
+        });
+    },
+    3672: function (__unused_webpack_module, exports, __webpack_require__) {
+      'use strict';
+      var __importDefault =
+        (this && this.__importDefault) ||
+        function (mod) {
+          return mod && mod.__esModule ? mod : { default: mod };
+        };
+      Object.defineProperty(exports, '__esModule', { value: !0 });
+      const react_1 = __importDefault(__webpack_require__(7294)),
+        bind_1 = __importDefault(__webpack_require__(7166)),
+        react_redux_1 = __webpack_require__(8629),
+        Icon_1 = __importDefault(__webpack_require__(8055)),
+        RouteContent_scss_1 = __importDefault(__webpack_require__(3843)),
         cx = bind_1.default.bind(RouteContent_scss_1.default);
       exports.default = ({ path, label, action, icon }) => {
         const dispatch = react_redux_1.useDispatch(),
@@ -31,7 +54,7 @@
           ),
           react_1.default.createElement(
             'div',
-            { className: cx('route-content--counter') + ' m-t-xs' },
+            { className: `${cx('route-content--counter')} m-t-xs` },
             react_1.default.createElement(Icon_1.default, { icon: 'angle-right' }),
             ' ',
             react_1.default.createElement('code', null, 'counter'),
@@ -54,34 +77,14 @@
         );
       };
     },
-    254: function (module, exports, __webpack_require__) {},
-    255: function (module, exports, __webpack_require__) {
+    750: function (__unused_webpack_module, exports, __webpack_require__) {
       'use strict';
       Object.defineProperty(exports, '__esModule', { value: !0 }),
         (exports.resetAction = exports.decrementAction = exports.incrementAction = void 0);
-      const reducer_1 = __webpack_require__(78);
-      (exports.incrementAction = () => ({ type: reducer_1.INCREMENT_COUNTER })),
-        (exports.decrementAction = () => ({ type: reducer_1.DECREMENT_COUNTER })),
-        (exports.resetAction = () => ({ type: reducer_1.RESET_COUNTER }));
-    },
-    80: function (module, exports, __webpack_require__) {
-      'use strict';
-      var __importDefault =
-        (this && this.__importDefault) ||
-        function (mod) {
-          return mod && mod.__esModule ? mod : { default: mod };
-        };
-      Object.defineProperty(exports, '__esModule', { value: !0 });
-      const react_1 = __importDefault(__webpack_require__(0)),
-        RouteContent_1 = __importDefault(__webpack_require__(253)),
-        actions_1 = __webpack_require__(255);
-      exports.default = () =>
-        react_1.default.createElement(RouteContent_1.default, {
-          icon: 'minus',
-          path: '/decrement',
-          label: 'Decrement',
-          action: actions_1.decrementAction,
-        });
+      const reducer_1 = __webpack_require__(9269);
+      exports.incrementAction = () => ({ type: reducer_1.INCREMENT_COUNTER });
+      exports.decrementAction = () => ({ type: reducer_1.DECREMENT_COUNTER });
+      exports.resetAction = () => ({ type: reducer_1.RESET_COUNTER });
     },
   },
 ]);

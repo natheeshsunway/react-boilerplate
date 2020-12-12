@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 /**
  * react-boilerplate scripts
@@ -27,8 +28,8 @@ const isDevelopment = NodeUtils.isDevelopment();
 function getPlugins() {
   return [
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+      filename: isDevelopment ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[contenthash].css',
     }),
 
     /**
@@ -71,7 +72,6 @@ function getCodeSplittingConfig() {
     },
     minimizer: [
       new TerserPlugin({
-        sourceMap: true,
         terserOptions: {
           ecma: 8,
           mangle: false,
@@ -94,9 +94,7 @@ function getParserRules() {
       use: [
         {
           loader: MiniCssExtractPlugin.loader,
-          options: {
-            hmr: isDevelopment,
-          },
+          options: {},
         },
         'css-loader',
         'postcss-loader',
@@ -107,7 +105,7 @@ function getParserRules() {
     },
     {
       test: /\.(js|jsx)$/,
-      loaders: 'babel-loader',
+      use: 'babel-loader',
       include: APP_DIR,
       exclude: NODE_MODULES,
     },
@@ -119,18 +117,18 @@ function getParserRules() {
     },
     {
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
-      loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]',
+      use: 'url-loader?limit=10000&name=[name]-[hash].[ext]',
       include: APP_DIR,
       exclude: NODE_MODULES,
     },
     {
       test: /\.ico$/,
-      loader: 'file-loader?name=[name].[ext]',
+      use: 'file-loader?name=[name].[ext]',
       exclude: NODE_MODULES,
     },
     {
       test: /\.json$/,
-      loader: 'json-loader',
+      use: 'json-loader',
       include: APP_DIR,
       exclude: NODE_MODULES,
     },
@@ -185,15 +183,23 @@ if (!NodeUtils.isDevelopment()) {
   webpackConfig.entry = './src/Bootstrap';
   webpackConfig.mode = 'production';
 } else {
-  webpackConfig.devtool = 'eval';
   webpackConfig.mode = 'development';
   webpackConfig.entry = [
-    'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
     'webpack/hot/only-dev-server',
     './src/Bootstrap',
   ];
   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+  webpackConfig.plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
+
+  webpackConfig.devServer = {
+    open: true,
+    port: appConfig.example.port,
+    stats: 'errors-only',
+    inline: true,
+    injectClient: false,
+    historyApiFallback: true,
+  };
 }
 
 module.exports = webpackConfig;

@@ -1,14 +1,9 @@
 import * as React from 'react';
-import classnames from 'classnames/bind';
 
 import { Icon, Link } from '~components/common';
 import GithubButtons from '~components/Footer/GithubButtons';
 
 import { URL } from '~app/const';
-
-import styles from '~components/Footer/styles/Footer.scss';
-
-const cx = classnames.bind(styles);
 
 const Repository = () => (
   <strong className="has-text-grey-light">
