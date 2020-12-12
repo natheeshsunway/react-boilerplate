@@ -6,6 +6,8 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 <br />
 :heart: Typescript
 <br />
+:heart: React 17
+<br/>
 :heart: Webpack 5
 <br/>
 :heart: React Router v5
@@ -13,8 +15,6 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 :heart: Redux v4
 <br/>
 :heart: Code splitting
-<br/>
-:heart: React 17
 <br/>
 
 <div align="center"> 
