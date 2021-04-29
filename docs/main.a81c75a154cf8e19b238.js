@@ -832,7 +832,7 @@
               null,
               'Utilizes ',
               React.createElement('a', { href: const_1.URL.REACT_ROUTER }, 'react-router'),
-              ' v5 for client-side routing'
+              ' v5 ********* for client-side routing'
             ),
           },
           React.createElement(AsyncTabbedRouter_1.default, null)

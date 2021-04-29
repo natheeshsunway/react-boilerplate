@@ -11,7 +11,7 @@ const ReactRouter = () => (
     title="Router"
     subtitle={
       <span>
-        Utilizes <a href={URL.REACT_ROUTER}>react-router</a> v5 for client-side routing
+        Utilizes <a href={URL.REACT_ROUTER}>react-router</a> v5 ********* for client-side routing
       </span>
     }
   >
