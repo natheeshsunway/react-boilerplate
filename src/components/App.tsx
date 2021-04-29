@@ -15,6 +15,7 @@ const cx = classnames.bind(styles);
 const App = () => (
   <section className={cx('react-boilerplate')}>
     <NavBar />
+    <p>OMMM NAMA Shivaya</p>
     <section className={`section ${cx('section--body')}`}>
       <div className="container">
         <div className="columns">

@@ -402,6 +402,7 @@
           'section',
           { className: cx('react-boilerplate') },
           react_1.default.createElement(Navbar_1.default, null),
+          react_1.default.createElement('p', null, 'OMMM NAMA Shivaya'),
           react_1.default.createElement(
             'section',
             { className: `section ${cx('section--body')}` },
